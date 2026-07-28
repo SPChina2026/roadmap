@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E‑Beam Kazakhstan — Центр электронно-лучевой стерилизации</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+      background: #ffffff;
+      color: #1a2a44;
+      line-height: 1.5;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .header {
+      padding: 20px 0;
+      border-bottom: 1px solid #eef2f6;
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 24px;
+      letter-spacing: -0.3px;
+      color: #0b2b5c;
+    }
+    .logo span { color: #0077b6; }
+    .logo small {
+      font-weight: 400;
+      font-size: 14px;
+      color: #4a5e7a;
+      display: block;
+      letter-spacing: 0;
+    }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 12px;
+    }
+    .nav a {
+      color: #1a2a44;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+    .nav a:hover { color: #0077b6; border-bottom-color: #0077b6; }
+
+    .hero {
+      padding: 60px 0 50px;
+      background: linear-gradient(135deg, #f8faff 0%, #eaf3fa 100%);
+      border-bottom: 1px solid #e0e8f0;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #0b2b5c;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 18px;
+      color: #2c3e5c;
+      margin-bottom: 28px;
+      max-width: 540px;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .stat-item {
+      background: #fff;
+      padding: 20px 18px;
+      border-radius: 16px;
+      border: 1px solid #e6edf6;
+    }
+    .stat-item .number {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0077b6;
+    }
+    .stat-item .label {
+      font-size: 14px;
+      color: #4a5e7a;
+      margin-top: 4px;
+    }
+    .hero-right {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 24px;
+      border: 1px solid #e0ebf5;
+      box-shadow: 0 8px 30px rgba(0, 60, 120, 0.06);
+    }
+    .hero-right h3 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: #0b2b5c;
+    }
+    .hero-right ul {
+      list-style: none;
+      padding: 0;
+    }
+    .hero-right ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid #ecf2f9;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+    }
+    .hero-right ul li:last-child { border: none; }
+    .check {
+      color: #0077b6;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .section {
+      padding: 60px 0;
+      border-bottom: 1px solid #eef2f6;
+    }
+    .section:last-of-type { border: none; }
+    .section-title {
+      font-size: 30px;
+      font-weight: 700;
+      color: #0b2b5c;
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      color: #4a5e7a;
+      font-size: 17px;
+      margin-bottom: 32px;
+      max-width: 700px;
+    }
+    .section-sub-center {
+      color: #4a5e7a;
+      font-size: 17px;
+      margin-bottom: 32px;
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .card {
+      background: #f9fcff;
+      border-radius: 20px;
+      padding: 24px 22px;
+      border: 1px solid #e6edf6;
+      transition: 0.15s;
+    }
+    .card:hover { border-color: #b8d4e8; }
+    .card h4 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #0b2b5c;
+    }
+    .card p {
+      font-size: 15px;
+      color: #2c3e5c;
+    }
+    .badge {
+      background: #0077b6;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      padding: 30px 0;
+      font-size: 14px;
+      color: #6a7e9a;
+      border-top: 1px solid #eef2f6;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .doc-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      background: #f9fcff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e0ebf5;
+      margin: 16px 0;
+    }
+    .doc-table th {
+      background: #eaf3fa;
+      color: #0b2b5c;
+      font-weight: 600;
+      padding: 12px 16px;
+      text-align: left;
+    }
+    .doc-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #e6edf6;
+      background: #fff;
+    }
+    .doc-table tr:last-child td { border: none; }
+
+    .doc-section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0b2b5c;
+      margin: 30px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #e6edf6;
+    }
+    .doc-subsection-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: #0b2b5c;
+      margin: 20px 0 10px;
+    }
+    .doc-text {
+      font-size: 14px;
+      color: #2c3e5c;
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+    .doc-list {
+      font-size: 14px;
+      color: #2c3e5c;
+      padding-left: 24px;
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+    .doc-list li { margin-bottom: 4px; }
+
+    .info-footer {
+      background: #f2f8fe;
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #2c3e5c;
+      text-align: center;
+      border: 1px solid #dce8f2;
+    }
+    .info-footer strong { color: #0b2b5c; }
+
+    .image-placeholder {
+      background: #f9fcff;
+      border: 2px dashed #b8d4e8;
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      margin: 20px 0 30px;
+      color: #4a5e7a;
+      font-size: 15px;
+    }
+    .image-placeholder img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+    .image-placeholder .hint {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #8a9eb0;
+    }
+
+    .teo-structure {
+      background: #f2f8fe;
+      border-radius: 20px;
+      padding: 24px 28px;
+      border: 1px solid #dce8f2;
+      font-size: 14px;
+    }
+    .teo-structure ul {
+      list-style: none;
+      padding: 0;
+      columns: 2;
+    }
+    .teo-structure li {
+      padding: 4px 0;
+      color: #1a2a44;
+    }
+    .teo-structure li strong { color: #0b2b5c; }
+
+    .norm-list { list-style: none; padding: 0; }
+    .norm-list li { padding: 6px 0; border-bottom: 1px solid #f0f4f9; font-size: 14px; }
+    .norm-list li:last-child { border: none; }
+
+    .explain-box {
+      background: #f2f8fe;
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin-top: 12px;
+      border-left: 4px solid #0077b6;
+      font-size: 14px;
+      color: #2c3e5c;
+    }
+    .explain-box strong { color: #0b2b5c; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 30px; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .nav a { font-size: 13px; }
+      .doc-table { font-size: 13px; }
+      .doc-table th, .doc-table td { padding: 8px 10px; }
+      .teo-structure ul { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <div class="logo">
+      E‑Beam <span>Kazakhstan</span>
+      <small>Центр электронно-лучевой стерилизации</small>
+    </div>
+    <div class="nav">
+      <a href="#project">О проекте</a>
+      <a href="#tech">Технология</a>
+      <a href="#products">Изделия</a>
+      <a href="#norm">Нормативная база</a>
+      <a href="#docs">Разрешения</a>
+      <a href="#prk">Программа ПРК</a>
+      <a href="#permits">Разрешительные процедуры</a>
+      <a href="#sez">Статус СЭЗ</a>
+      <a href="#license">Лицензирование</a>
+      <a href="#psd">ПСД</a>
+      <a href="#teo">ТЭО</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Промышленный центр<br>электронно-лучевой стерилизации</h1>
+      <p>Новый производственный комплекс в СЭЗ «Алатау» на базе ускорителя CGN Dasheng DZ-10. Проектная мощность — до 1200 паллет в смену.</p>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="number">8–12 МэВ</div><div class="label">Энергия пучка</div></div>
+        <div class="stat-item"><div class="number">20–32 кВт</div><div class="label">Мощность</div></div>
+        <div class="stat-item"><div class="number">1200</div><div class="label">Паллет в смену</div></div>
+        <div class="stat-item"><div class="number">10–60 с</div><div class="label">Время обработки</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <h3>Ключевые параметры проекта</h3>
+      <ul>
+        <li><span class="check">✓</span> Уровень стерильности: <strong>SAL 10⁻⁶</strong> (ISO 11137)</li>
+        <li><span class="check">✓</span> Обработка в финальной упаковке</li>
+        <li><span class="check">✓</span> Без остаточных веществ и аэрации</li>
+        <li><span class="check">✓</span> Отсутствие радиоактивных отходов</li>
+        <li><span class="check">✓</span> Совместимость с термолабильными полимерами</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- О ПРОЕКТЕ -->
+<section id="project" class="section">
+  <div class="container">
+    <div class="section-title">О проекте</div>
+    <div class="section-sub">Создание промышленного центра радиационной стерилизации в СЭЗ «Алатау». Проект реализуется как совместное предприятие казахстанских и китайских партнёров.</div>
+    <div class="grid-2">
+      <div class="card">
+        <h4>Организатор</h4>
+        <p><strong>Совместное предприятие (СП) Казахстан – Китай.</strong></p>
+        <p style="margin-top: 8px; font-size: 14px; color: #4a5e7a;">Технологический партнёр — <strong>CGN Dasheng</strong> (входит в China General Nuclear Power Group).</p>
+      </div>
+      <div class="card">
+        <h4>Место реализации</h4>
+        <p><strong>СЭЗ «Алатау»</strong>, Республика Казахстан.</p>
+        <p style="margin-top: 8px; font-size: 14px; color: #4a5e7a;">Налоговые и таможенные преференции для резидентов. Близость к рынкам Центральной Азии и ЕАЭС.</p>
+      </div>
+    </div>
+    <div class="info-footer"><strong>Обратите внимание:</strong> Аккредитованная лаборатория отсутствует. Для валидации привлекаются сторонние аккредитованные лаборатории.</div>
+  </div>
+</section>
+
+<!-- ТЕХНОЛОГИЯ -->
+<section id="tech" class="section">
+  <div class="container">
+    <div class="section-title">Технология</div>
+    <div class="section-sub">Промышленный ускоритель электронов CGN Dasheng DZ-10. Валидация по ISO 11137.</div>
+    <div class="grid-3">
+      <div class="card"><h4>Оборудование</h4><p>8–12 МэВ, 20–32 кВт, до 1200 паллет в смену.</p></div>
+      <div class="card"><h4>Принцип действия</h4><p>Ионизация → свободные радикалы → разрушение ДНК микроорганизмов.</p></div>
+      <div class="card"><h4>Преимущества</h4><p>«Холодный» метод, отсутствие остаточных веществ, экологичность.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ИЗДЕЛИЯ -->
+<section id="products" class="section">
+  <div class="container">
+    <div class="section-title">Номенклатура изделий</div>
+    <div class="section-sub">Перечень групп медицинских изделий, для которых планируется электронно-лучевая стерилизация.</div>
+    <div class="grid-2">
+      <ul style="list-style: none; padding: 0; font-size: 15px;">
+        <li style="padding: 8px 0; border-bottom: 1px solid #f0f4f9;">✓ Шприцы однократного применения всех объёмов</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid #f0f4f9;">✓ Инъекционные иглы</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid #f0f4f9;">✓ Мочевые, сосудистые, дыхательные катетеры</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid #f0f4f9;">✓ Дренажные трубки</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid #f0f4f9;">✓ Вакуумные пробирки, системы для переливания крови</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid #f0f4f9;">✓ Скальпели, лезвия, хирургические иглы</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid #f0f4f9;">✓ Хирургические зажимы</li>
+      </ul>
+      <ul style="list-style: none; padding: 0; font-size: 15px;">
+        <li style="padding: 8px 0; border-bottom: 1px solid #f0f4f9;">✓ Хирургические перчатки (латекс, нитрил)</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid #f0f4f9;">✓ Халаты, маски, шапочки, простыни</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid #f0f4f9;">✓ Бинты, марля, пластыри, раневые повязки</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid #f0f4f9;">✓ Костные винты, спицы, пластины</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid #f0f4f9;">✓ Стенты</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid #f0f4f9;">✓ Флаконы, контейнеры, чашки Петри</li>
+        <li style="padding: 8px 0;">✓ Акушерские наборы, комплекты для катетеризации</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- НОРМАТИВНАЯ БАЗА -->
+<section id="norm" class="section">
+  <div class="container">
+    <div class="section-title">Нормативная база</div>
+    <div class="section-sub">Фармакопейное регулирование и международные стандарты, применяемые при радиационной стерилизации.</div>
+    <div class="grid-2">
+      <div class="card">
+        <h4>Фармакопеи</h4>
+        <ul class="norm-list">
+          <li><strong>Фармакопея ЕАЭС</strong> — ОФС «4.8. Стерилизация» и «2.3.1.5. Методы обеспечения стерильности продуктов»</li>
+          <li><strong>Государственная фармакопея РК</strong> — гармонизирована с ведущими мировыми фармакопеями</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Международные стандарты</h4>
+        <ul class="norm-list">
+          <li><strong>ISO 11137 (серия)</strong> — «Стерилизация медицинской продукции. Радиационная стерилизация»</li>
+          <li><strong>ISO 13485</strong> — «Изделия медицинские. Системы менеджмента качества»</li>
+          <li><strong>ISO 11607</strong> — «Упаковка для стерилизуемых медицинских изделий»</li>
+        </ul>
+      </div>
+    </div>
+    <div class="explain-box">
+      <strong>Почему ISO 11137 нужен для E-Beam?</strong><br>
+      Стандарт устанавливает единые требования для всех радиационных методов (гамма, электронный пучок, рентген). Для E-Beam он содержит отдельные разделы по валидации (IQ/OQ/PQ), установлению стерилизующей дозы, дозовому картированию и дозиметрии.
+    </div>
+  </div>
+</section>
+
+<!-- РАЗРЕШИТЕЛЬНЫЕ ДОКУМЕНТЫ -->
+<section id="docs" class="section">
+  <div class="container">
+    <div class="section-title">Разрешительная документация</div>
+    <div class="section-sub">Планируемый порядок получения разрешений и лицензий для нового центра.</div>
+    <div style="background: #f9fcff; border-radius: 20px; padding: 24px; border: 1px solid #e6edf6; margin-bottom: 30px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 14px;">
+        <div><strong>Регулятор:</strong> Комитет атомного надзора и контроля Агентства РК по атомной энергии (правопреемник КАЭНК).</div>
+        <div><strong>Лицензирование:</strong> Через портал elicense.kz.</div>
+        <div><strong>Ключевой НПА:</strong> Закон РК «Об использовании атомной энергии» № 442-V.</div>
+        <div><strong>Особый статус:</strong> Ускоритель — генерирующая установка, НЕ радиоизотопный источник.</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="card"><span class="badge">Этап 1</span><h4>Корпоративный и статус СЭЗ</h4><p>Регистрация юрлица, договор с УК СЭЗ, постановка на учёт, присвоение ОКЭД.</p></div>
+      <div class="card"><span class="badge">Этап 2</span><h4>Земля и проектирование</h4><p>Договор аренды, ПСД (включая раздел радиационной защиты), госэкспертиза, ОВОС, разрешение на строительство.</p></div>
+      <div class="card"><span class="badge">Этап 3</span><h4>Радиационно-санитарная линейка</h4><p>СЭЗ Минздрава, Программа ПРК, лицензия на обращение с ИИИ, госрегистрация источника.</p></div>
+      <div class="card"><span class="badge">Этап 4</span><h4>Ввоз оборудования</h4><p>Таможенное декларирование, сертификат соответствия ТР ТС 004/2011 и 020/2011.</p></div>
+      <div class="card"><span class="badge">Этап 5</span><h4>Строительство и ввод</h4><p>Пожарная безопасность, приёмка госприёмочной комиссией, акт ввода в эксплуатацию.</p></div>
+      <div class="card"><span class="badge">Этап 6</span><h4>Эксплуатация</h4><p>Аттестация персонала РБ, ПРК, отчётность, включение процесса в регистрационное досье (ISO 11137).</p></div>
+    </div>
+    <div style="margin-top: 24px; background: #f2f8fe; border-radius: 20px; padding: 20px 24px; border: 1px solid #dce8f2;">
+      <div style="font-weight: 600; color: #0b2b5c;">Переходный период (2026–2027)</div>
+      <p style="font-size: 14px; color: #2c3e5c; margin-top: 6px;">В соответствии с Конституционным законом РК от 08.05.2026 № 286-VIII «О специальном правовом режиме города Алатау»: до 1 января 2027 года — заключение договоров СЭЗ; до 1 июля 2027 года — переход в статус «резидент Алатау» с сохранением преференций.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ПРОГРАММА ПРК -->
+<section id="prk" class="section">
+  <div class="container">
+    <div class="section-title">Программа производственного радиационного контроля (ПРК)</div>
+    <div class="section-sub-center">Центр электронно-лучевой стерилизации «E‑Beam Kazakhstan»</div>
+
+    <!-- КАРТИНКА ПРК -->
+    <div class="image-placeholder">
+      <img src="prk.png" alt="Схема программы ПРК" style="max-width:100%;">
+      <div class="hint">Картинка: схема программы производственного радиационного контроля (prk.png)</div>
+    </div>
+
+    <div style="background: #f9fcff; border-radius: 20px; padding: 40px; border: 1px solid #e6edf6; margin-bottom: 40px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; text-align: center; font-size: 14px; color: #4a5e7a; margin-bottom: 40px;">
+        <div><strong>Разработал</strong><br>ГИП<br>___________<br>«___» _______ 2026 г.</div>
+        <div><strong>Согласовано</strong><br>Руководитель службы РБ<br>___________<br>«___» _______ 2026 г.</div>
+        <div><strong>Утверждено</strong><br>Генеральный директор<br>___________<br>«___» _______ 2026 г.</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 28px; font-weight: 700; color: #0b2b5c; letter-spacing: 1px;">ПРОГРАММА</div>
+        <div style="font-size: 22px; font-weight: 600; color: #0b2b5c; margin: 8px 0;">ПРОИЗВОДСТВЕННОГО РАДИАЦИОННОГО КОНТРОЛЯ</div>
+        <div style="font-size: 16px; color: #4a5e7a; margin-top: 20px;">Центр электронно-лучевой стерилизации «E‑Beam Kazakhstan»</div>
+        <div style="font-size: 14px; color: #6a7e9a; margin-top: 8px;">Алматы, 2026</div>
+      </div>
+    </div>
+
+    <div class="doc-section-title">1. ОБЩИЕ ПОЛОЖЕНИЯ</div>
+    <div class="doc-subsection-title">1.1. Назначение</div>
+    <div class="doc-text">Программа устанавливает порядок организации и проведения радиационного контроля на объектах Центра.</div>
+
+    <div class="doc-subsection-title">1.2. Нормативная база</div>
+    <ul class="doc-list">
+      <li>Закон РК «О радиационной безопасности населения»</li>
+      <li>Закон РК «Об использовании атомной энергии»</li>
+      <li>Технический регламент «Ядерная и радиационная безопасность»</li>
+      <li>Санитарные правила по радиационной безопасности</li>
+    </ul>
+
+    <div class="doc-subsection-title">1.3. Ответственность</div>
+    <div class="doc-text">Ответственным назначается специалист (служба) радиационной безопасности.</div>
+
+    <div class="doc-section-title">2. ЦЕЛИ И ЗАДАЧИ</div>
+    <ul class="doc-list">
+      <li>Обеспечение радиационной безопасности персонала</li>
+      <li>Контроль соблюдения нормативов</li>
+      <li>Предотвращение несанкционированного доступа к ИИИ</li>
+    </ul>
+
+    <div class="doc-section-title">3. ЗОНЫ КОНТРОЛЯ</div>
+    <table class="doc-table">
+      <thead><tr><th>Зона</th><th>Описание</th><th>Параметры</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Зона строгого режима</strong></td><td>Облучательная камера</td><td>МД, ППД, утечки</td></tr>
+        <tr><td><strong>Зона постоянного контроля</strong></td><td>Помещения управления</td><td>МД, радиационный фон</td></tr>
+        <tr><td><strong>Санитарно-защитная зона</strong></td><td>Территория вокруг здания</td><td>МД на границе</td></tr>
+      </tbody>
+    </table>
+
+    <div class="doc-section-title">4. ПЕРИОДИЧНОСТЬ КОНТРОЛЯ</div>
+    <table class="doc-table">
+      <thead><tr><th>Вид контроля</th><th>Периодичность</th></tr></thead>
+      <tbody>
+        <tr><td>МД в зоне управления</td><td>Каждая смена</td></tr>
+        <tr><td>МД на границе СЗЗ</td><td>Ежеквартально</td></tr>
+        <tr><td>Утечки через защиту</td><td>Ежеквартально</td></tr>
+        <tr><td>Индивидуальный дозиметрический контроль</td><td>Постоянно</td></tr>
+        <tr><td>Контроль загрязнения поверхностей</td><td>Ежемесячно</td></tr>
+        <tr><td>Проверка систем блокировок</td><td>Перед началом работы</td></tr>
+      </tbody>
+    </table>
+
+    <div class="doc-section-title">5. СРЕДСТВА КОНТРОЛЯ</div>
+    <ul class="doc-list">
+      <li>Дозиметр-радиометр МКС-АТ1117М</li>
+      <li>Дозиметр ДКС-04 с блоком нейтронных детекторов</li>
+      <li>Радиометр МКС-АТ1117М с блоком БДПБ-01</li>
+      <li>Газоанализатор портативный</li>
+      <li>Термолюминесцентные дозиметры ДТГ-4</li>
+    </ul>
+
+    <div style="margin-top:30px; padding-top:20px; border-top:1px solid #e6edf6; text-align:center; font-size:14px; color:#6a7e9a;">
+      <p>Дата введения: «___» ___________ 2026 г.</p>
+    </div>
+  </div>
+</section>
+
+<!-- РАЗРЕШИТЕЛЬНЫЕ ПРОЦЕДУРЫ -->
+<section id="permits" class="section">
+  <div class="container">
+    <div class="section-title">Разрешительные процедуры и экспертиза проекта</div>
+    <div class="section-sub-center">Порядок согласования проектной документации</div>
+
+    <div class="image-placeholder">
+      <img src="permits.png" alt="Схема разрешительных процедур" style="max-width:100%;">
+      <div class="hint">Картинка: схема разрешительных процедур (permits.png)</div>
+    </div>
+
+    <div class="doc-section-title">1. Область применения</div>
+    <div class="doc-text">Документ для заказчиков, проектных организаций, экспертов и участников строительного процесса.</div>
+
+    <div class="doc-section-title">2. Введение</div>
+    <div class="doc-text">Перечень органов, выдающих разрешительные документы, с учетом законодательства РК на 2026 год.</div>
+
+    <div class="doc-section-title">3. Этап 1. Исходные материалы</div>
+    <table class="doc-table">
+      <thead><tr><th>Документ</th><th>Уполномоченный орган</th></tr></thead>
+      <tbody>
+        <tr><td>Архитектурно-планировочное задание (АПЗ)</td><td>Местный исполнительный орган</td></tr>
+        <tr><td>Технические условия</td><td>Поставщики услуг</td></tr>
+        <tr><td>Выкопировка из проекта планировки</td><td>Местный исполнительный орган</td></tr>
+      </tbody>
+    </table>
+
+    <div class="doc-section-title">4. Этап 2. Согласование эскиза</div>
+    <div class="doc-text">Государственная услуга «Согласование эскиза». Срок: 10 рабочих дней.</div>
+
+    <div class="doc-section-title">5. Этап 3. Экспертиза ПСД</div>
+    <table class="doc-table">
+      <thead><tr><th>Экспертиза</th><th>Орган</th></tr></thead>
+      <tbody>
+        <tr><td>Комплексная вневедомственная</td><td>РГП «Госэкспертиза»</td></tr>
+        <tr><td>Экологическая</td><td>Комитет экологического регулирования</td></tr>
+        <tr><td>Санитарно-эпидемиологическая</td><td>Комитет санитарного контроля МЗ РК</td></tr>
+      </tbody>
+    </table>
+
+    <div class="doc-section-title">6. Этап 4. Утверждение ПСД</div>
+    <div class="doc-text">Утверждается заказчиком после получения положительного заключения.</div>
+
+    <div class="doc-section-title">7. Этап 5. Начало строительства</div>
+    <div class="doc-text">Уведомление ГАСК о начале строительно-монтажных работ.</div>
+
+    <div class="doc-section-title">8. Этап 6. Специальные разрешительные процедуры</div>
+    <table class="doc-table">
+      <thead><tr><th>Документ</th><th>Орган</th></tr></thead>
+      <tbody>
+        <tr><td>Лицензия на деятельность по использованию атомной энергии</td><td>Комитет атомного надзора и контроля</td></tr>
+        <tr><td>Государственный учет ИИИ</td><td>Комитет атомного надзора и контроля</td></tr>
+      </tbody>
+    </table>
+
+    <div class="doc-section-title">9. Этап 7. Ввод в эксплуатацию</div>
+    <div class="doc-text">Акт приемки строительного объекта утверждается заказчиком. Учет в АЦС ГГК.</div>
+
+    <div class="info-footer"><strong>Статус документа:</strong> Информационно-справочный. Подлежит актуализации при изменении законодательства.</div>
+  </div>
+</section>
+
+<!-- СТАТУС СЭЗ -->
+<section id="sez" class="section">
+  <div class="container">
+    <div class="section-title">Как получить статус участника СЭЗ «Alatau»</div>
+    <div class="section-sub-center">Пошаговый порядок получения статуса участника СЭЗ</div>
+
+    <div class="image-placeholder">
+      <img src="sez-status.png" alt="Статус СЭЗ Alatau" style="max-width:100%;">
+      <div class="hint">Картинка: пошаговая схема получения статуса СЭЗ (sez-status.png)</div>
+    </div>
+
+    <div class="doc-section-title">1. Подготовка документов</div>
+    <ul class="doc-list">
+      <li>Заявление на получение статуса участника СЭЗ</li>
+      <li>Анкета заявителя</li>
+      <li>Копия Устава</li>
+      <li>Решение о деятельности на территории СЭЗ</li>
+      <li>Справка о регистрации</li>
+      <li>ТЭО инвестиционного проекта</li>
+      <li>Финансовая отчетность</li>
+    </ul>
+
+    <div class="doc-section-title">2. Подача заявки</div>
+    <ul class="doc-list">
+      <li>Онлайн: alatau.city (раздел для инвесторов)</li>
+      <li>Офлайн: управляющая компания СЭЗ</li>
+    </ul>
+
+    <div class="doc-section-title">3. Рассмотрение и защита проекта</div>
+    <div class="doc-text">Эксперты оценивают экономическую целесообразность и соответствие целям СЭЗ.</div>
+
+    <div class="doc-section-title">4. Заключение договора</div>
+    <div class="doc-text">Подписание «Договора об осуществлении деятельности». Включение в реестр. Выдача Свидетельства.</div>
+
+    <div class="doc-section-title">5. Постановка на налоговый учет</div>
+    <div class="doc-text">Постановка в УГД по месту нахождения СЭЗ для применения льгот.</div>
+
+    <div class="info-footer"><strong>Статус участника СЭЗ дает доступ к налоговым и таможенным преференциям.</strong></div>
+  </div>
+</section>
+
+<!-- ЛИЦЕНЗИРОВАНИЕ -->
+<section id="license" class="section">
+  <div class="container">
+    <div class="section-title">Лицензирование в области использования атомной энергии</div>
+    <div class="section-sub-center">Получение лицензии на деятельность в области атомной энергии</div>
+
+    <div class="grid-4">
+      <div class="card"><h4>Соответствие законодательству</h4><p>Лицензия подтверждает соответствие всем нормативным требованиям и стандартам безопасности.</p></div>
+      <div class="card"><h4>Доступ к крупным проектам</h4><p>Открывает возможности для участия в высокотехнологичных проектах.</p></div>
+      <div class="card"><h4>Укрепление репутации</h4><p>Повышает доверие со стороны партнеров и регулирующих органов.</p></div>
+      <div class="card"><h4>Конкурентное преимущество</h4><p>Компании с лицензией занимают более выгодные позиции на рынке.</p></div>
+    </div>
+
+    <div class="doc-section-title">Виды лицензий в области использования атомной энергии</div>
+    <ul class="doc-list">
+      <li>Деятельность по этапам жизненного цикла объектов использования атомной энергии</li>
+      <li>Деятельность по обращению с ядерными материалами</li>
+      <li>Деятельность по обращению с радиоактивными веществами</li>
+      <li>Деятельность по обращению с приборами и установками, генерирующими ионизирующее излучение</li>
+      <li>Деятельность по предоставлению услуг в области использования атомной энергии</li>
+      <li>Деятельность по обращению с радиоактивными отходами</li>
+      <li>Деятельность по транспортировке ядерных материалов</li>
+    </ul>
+
+    <div class="doc-section-title">Процесс получения лицензии</div>
+    <div class="grid-4">
+      <div class="card"><span class="badge">1</span><h4>Подготовка документов</h4><p>Формирование пакета документов по требованиям.</p></div>
+      <div class="card"><span class="badge">2</span><h4>Подача заявления</h4><p>Через портал elicense.kz.</p></div>
+      <div class="card"><span class="badge">3</span><h4>Проверка объекта</h4><p>Выездная проверка уполномоченным органом.</p></div>
+      <div class="card"><span class="badge">4</span><h4>Принятие решения</h4><p>Рассмотрение документов. Срок: 20 рабочих дней.</p></div>
+    </div>
+    <div style="text-align:center; margin-top:20px;">
+      <div class="card"><span class="badge">5</span><h4>Получение лицензии</h4><p>Выдача лицензии на деятельность в области использования атомной энергии.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ПСД -->
+<section id="psd" class="section">
+  <div class="container">
+    <div class="section-title">Проектно-сметная документация (ПСД)</div>
+    <div class="section-sub-center">Центр электронно-лучевой стерилизации «E‑Beam Kazakhstan»</div>
+
+    <div style="background: #f9fcff; border-radius: 20px; padding: 40px; border: 1px solid #e6edf6; margin-bottom: 40px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; text-align: center; font-size: 14px; color: #4a5e7a; margin-bottom: 40px;">
+        <div><strong>Разработал</strong><br>ГИП<br>___________<br>«___» _______ 2026 г.</div>
+        <div><strong>Согласовано</strong><br>Руководитель службы РБ<br>___________<br>«___» _______ 2026 г.</div>
+        <div><strong>Утверждено</strong><br>Генеральный директор<br>___________<br>«___» _______ 2026 г.</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 28px; font-weight: 700; color: #0b2b5c; letter-spacing: 1px;">ПРОЕКТНО-СМЕТНАЯ ДОКУМЕНТАЦИЯ</div>
+        <div style="font-size: 18px; color: #4a5e7a; margin-top: 20px;">Объект: Линейный ускоритель электронов CGN Dasheng DZ-10 (8–12 МэВ, 20–32 кВт)</div>
+        <div style="font-size: 14px; color: #6a7e9a; margin-top: 8px;">Алматы, 2026</div>
+      </div>
+    </div>
+
+    <div class="doc-section-title">1. ОБЩИЕ ПОЛОЖЕНИЯ</div>
+    <div class="doc-subsection-title">1.1. Назначение</div>
+    <div class="doc-text">ПСД определяет архитектурные, конструктивные, инженерные и технологические решения для строительства Центра.</div>
+
+    <div class="doc-subsection-title">1.2. Объект проектирования</div>
+    <table class="doc-table">
+      <thead><tr><th>Параметр</th><th>Значение</th></tr></thead>
+      <tbody>
+        <tr><td>Наименование</td><td>Центр электронно-лучевой стерилизации</td></tr>
+        <tr><td>Месторасположение</td><td>СЭЗ «Алатау», РК</td></tr>
+        <tr><td>Оборудование</td><td>Линейный ускоритель CGN Dasheng DZ-10</td></tr>
+        <tr><td>Энергия пучка</td><td>8–12 МэВ</td></tr>
+        <tr><td>Мощность пучка</td><td>20–32 кВт</td></tr>
+      </tbody>
+    </table>
+
+    <div class="doc-section-title">2. СОСТАВ ПСД</div>
+    <div class="grid-2">
+      <div class="card"><h4>Том 1. Общая часть</h4><p>Паспорт проекта, энергетический паспорт, пояснительная записка.</p></div>
+      <div class="card"><h4>Том 2. Генеральный план</h4><p>Ситуационный план, схема генплана, СЗЗ.</p></div>
+      <div class="card"><h4>Том 3. Технологические решения</h4><p>Описание процесса, характеристика оборудования, схема конвейерной линии.</p></div>
+      <div class="card"><h4>Том 4. Архитектурно-строительные решения</h4><p>Планы, фасады, разрезы, конструктивные решения.</p></div>
+      <div class="card"><h4>Том 5. Радиационная защита</h4><p>Расчёт защиты (в разработке).</p></div>
+      <div class="card"><h4>Том 6. Инженерные системы</h4><p>Электроснабжение, вентиляция, блокировки.</p></div>
+      <div class="card"><h4>Том 7. Безопасность</h4><p>Пожарная безопасность, ГО, антитеррор.</p></div>
+      <div class="card"><h4>Том 8. Охрана окружающей среды</h4><p>ОВОС (в разработке).</p></div>
+    </div>
+    <div class="info-footer"><strong>Статус:</strong> В разработке. Разделы будут дополнены после получения исходных данных.</div>
+  </div>
+</section>
+
+<!-- ТЭО -->
+<section id="teo" class="section">
+  <div class="container">
+    <div class="section-title">Структура ТЭО</div>
+    <div class="section-sub">Технико-экономическое обоснование проекта должно быть подготовлено по следующим томам:</div>
+    <div class="teo-structure">
+      <div style="font-weight:700; color:#0b2b5c; margin-bottom:12px;">Том 1. Общая часть</div>
+      <ul>
+        <li><strong>Глава 1.</strong> Резюме проекта</li>
+        <li><strong>Глава 2.</strong> Глоссарий</li>
+        <li><strong>Глава 3.</strong> История развития радиационной стерилизации</li>
+        <li><strong>Глава 4.</strong> Физические основы E-Beam</li>
+        <li><strong>Глава 5.</strong> Сравнение методов</li>
+      </ul>
+      <div style="font-weight:700; color:#0b2b5c; margin:16px 0 12px;">Том 2. Технология</div>
+      <ul>
+        <li><strong>Глава 6.</strong> Оборудование CGN Dasheng DZ-10</li>
+        <li><strong>Глава 7.</strong> Инженерные системы</li>
+        <li><strong>Глава 8.</strong> Валидация (IQ/OQ/PQ)</li>
+        <li><strong>Глава 9.</strong> Система менеджмента качества</li>
+      </ul>
+      <div style="font-weight:700; color:#0b2b5c; margin:16px 0 12px;">Том 3. Медицинские изделия</div>
+      <ul>
+        <li><strong>Глава 10.</strong> Категории изделий</li>
+        <li><strong>Глава 11.</strong> Совместимость материалов</li>
+      </ul>
+      <div style="font-weight:700; color:#0b2b5c; margin:16px 0 12px;">Том 4. Рынок</div>
+      <ul>
+        <li><strong>Глава 12.</strong> Анализ рынка Центральной Азии</li>
+        <li><strong>Глава 13.</strong> Потенциальные клиенты</li>
+        <li><strong>Глава 14.</strong> Конкуренты</li>
+      </ul>
+      <div style="font-weight:700; color:#0b2b5c; margin:16px 0 12px;">Том 5. Финансы</div>
+      <ul>
+        <li><strong>Глава 15.</strong> CAPEX</li>
+        <li><strong>Глава 16.</strong> OPEX</li>
+        <li><strong>Глава 17.</strong> Финансовая модель</li>
+        <li><strong>Глава 18.</strong> Анализ чувствительности</li>
+      </ul>
+    </div>
+    <div class="info-footer"><strong>Статус:</strong> Структура утверждена. Документ в стадии подготовки.</div>
+  </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 E‑Beam Kazakhstan — Центр электронно-лучевой стерилизации</p>
+    <p style="margin-top:4px; font-size:13px; color:#8a9eb0;">Проект совместного предприятия Казахстан – Китай</p>
+  </div>
+</footer>
+
+</body>
+</html>
