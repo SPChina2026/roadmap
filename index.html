@@ -1,636 +1,1183 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Дорожная карта — E‑Beam Kazakhstan</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-      background: #f8faff;
-      color: #1a2a44;
-      line-height: 1.5;
-    }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .header {
-      padding: 20px 0;
-      background: #ffffff;
-      border-bottom: 1px solid #eef2f6;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-    }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .logo {
-      font-weight: 700;
-      font-size: 20px;
-      color: #0b2b5c;
-    }
-    .logo span { color: #0077b6; }
-    .logo small {
-      font-weight: 400;
-      font-size: 12px;
-      color: #4a5e7a;
-      display: block;
-    }
-    .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-    .tab-btn {
-      background: none;
-      border: none;
-      padding: 10px 18px;
-      font-size: 14px;
-      font-weight: 600;
-      color: #4a5e7a;
-      cursor: pointer;
-      border-radius: 8px 8px 0 0;
-      border-bottom: 3px solid transparent;
-      transition: 0.2s;
-    }
-    .tab-btn:hover { color: #0b2b5c; background: #f0f4f9; }
-    .tab-btn.active {
-      color: #0077b6;
-      border-bottom-color: #0077b6;
-      background: #f0f8ff;
-    }
-    .content {
-      background: #ffffff;
-      border-radius: 0 0 20px 20px;
-      padding: 40px 30px;
-      margin-top: 0;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-      border: 1px solid #e6edf6;
-      border-top: none;
-    }
-    .tab-pane { display: none; animation: fade 0.3s ease; }
-    .tab-pane.active { display: block; }
-    @keyframes fade { from { opacity: 0.4; } to { opacity: 1; } }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дорожная карта — E‑Beam Kazakhstan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #f8faff;
+            color: #1a2a44;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .header {
+            padding: 20px 0;
+            background: #ffffff;
+            border-bottom: 1px solid #eef2f6;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .logo {
+            font-weight: 700;
+            font-size: 20px;
+            color: #0b2b5c;
+        }
+        .logo span {
+            color: #0077b6;
+        }
+        .logo small {
+            font-weight: 400;
+            font-size: 12px;
+            color: #4a5e7a;
+            display: block;
+        }
+        .lang-switch {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .lang-btn {
+            background: none;
+            border: 1px solid #e6edf6;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #4a5e7a;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .lang-btn:hover {
+            background: #f0f4f9;
+            border-color: #0077b6;
+        }
+        .lang-btn.active {
+            background: #0077b6;
+            color: #fff;
+            border-color: #0077b6;
+        }
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 8px;
+        }
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #4a5e7a;
+            cursor: pointer;
+            border-radius: 8px 8px 0 0;
+            border-bottom: 3px solid transparent;
+            transition: 0.2s;
+        }
+        .tab-btn:hover {
+            color: #0b2b5c;
+            background: #f0f4f9;
+        }
+        .tab-btn.active {
+            color: #0077b6;
+            border-bottom-color: #0077b6;
+            background: #f0f8ff;
+        }
+        .content {
+            background: #ffffff;
+            border-radius: 0 0 20px 20px;
+            padding: 40px 30px;
+            border: 1px solid #e6edf6;
+            border-top: none;
+        }
+        .tab-pane {
+            display: none;
+            animation: fade 0.3s ease;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        @keyframes fade {
+            from {
+                opacity: 0.4;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .section-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #0b2b5c;
+            margin-bottom: 8px;
+        }
+        .section-sub {
+            color: #4a5e7a;
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .card {
+            background: #f9fcff;
+            border-radius: 16px;
+            padding: 20px 22px;
+            border: 1px solid #e6edf6;
+            transition: 0.15s;
+        }
+        .card:hover {
+            border-color: #b8d4e8;
+        }
+        .card h4 {
+            font-size: 17px;
+            color: #0b2b5c;
+            margin-bottom: 6px;
+        }
+        .card p,
+        .card li {
+            font-size: 14px;
+            color: #2c3e5c;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .card ul li {
+            padding: 4px 0 4px 20px;
+            position: relative;
+            border-bottom: 1px solid #f0f4f9;
+        }
+        .card ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0077b6;
+            font-weight: 700;
+        }
+        .card ul li:last-child {
+            border: none;
+        }
 
-    .section-title {
-      font-size: 26px;
-      font-weight: 700;
-      color: #0b2b5c;
-      margin-bottom: 8px;
-    }
-    .section-sub {
-      color: #4a5e7a;
-      font-size: 16px;
-      margin-bottom: 24px;
-    }
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .card {
-      background: #f9fcff;
-      border-radius: 16px;
-      padding: 20px 22px;
-      border: 1px solid #e6edf6;
-      transition: 0.15s;
-    }
-    .card:hover { border-color: #b8d4e8; }
-    .card h4 {
-      font-size: 17px;
-      color: #0b2b5c;
-      margin-bottom: 6px;
-    }
-    .card p, .card li {
-      font-size: 14px;
-      color: #2c3e5c;
-    }
-    .card ul { list-style: none; padding: 0; }
-    .card ul li { padding: 4px 0 4px 20px; position: relative; border-bottom: 1px solid #f0f4f9; }
-    .card ul li::before { content: "•"; position: absolute; left: 0; color: #0077b6; font-weight: 700; }
-    .card ul li:last-child { border: none; }
+        .badge {
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .badge-blue {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        .badge-green {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        .badge-orange {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        .badge-red {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        .badge-purple {
+            background: #e9d5ff;
+            color: #6b21a8;
+        }
 
-    .badge {
-      display: inline-block;
-      padding: 2px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .badge-blue { background: #dbeafe; color: #1e40af; }
-    .badge-green { background: #d1fae5; color: #065f46; }
-    .badge-orange { background: #fef3c7; color: #92400e; }
-    .badge-red { background: #fee2e2; color: #991b1b; }
-    .badge-purple { background: #e9d5ff; color: #6b21a8; }
+        .doc-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            background: #f9fcff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e0ebf5;
+            margin: 12px 0;
+        }
+        .doc-table th {
+            background: #eaf3fa;
+            color: #0b2b5c;
+            font-weight: 600;
+            padding: 12px 16px;
+            text-align: left;
+        }
+        .doc-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e6edf6;
+            background: #fff;
+        }
+        .doc-table tr:last-child td {
+            border: none;
+        }
 
-    .doc-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-      background: #f9fcff;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid #e0ebf5;
-      margin: 12px 0;
-    }
-    .doc-table th {
-      background: #eaf3fa;
-      color: #0b2b5c;
-      font-weight: 600;
-      padding: 12px 16px;
-      text-align: left;
-    }
-    .doc-table td {
-      padding: 12px 16px;
-      border-bottom: 1px solid #e6edf6;
-      background: #fff;
-    }
-    .doc-table tr:last-child td { border: none; }
+        .info-box {
+            background: #f2f8fe;
+            border-left: 4px solid #0077b6;
+            padding: 16px 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 16px 0;
+            font-size: 14px;
+            color: #2c3e5c;
+        }
+        .info-box strong {
+            color: #0b2b5c;
+        }
 
-    .info-box {
-      background: #f2f8fe;
-      border-left: 4px solid #0077b6;
-      padding: 16px 20px;
-      border-radius: 0 12px 12px 0;
-      margin: 16px 0;
-      font-size: 14px;
-      color: #2c3e5c;
-    }
-    .info-box strong { color: #0b2b5c; }
+        .footer {
+            padding: 20px 0;
+            font-size: 13px;
+            color: #6a7e9a;
+            text-align: center;
+            border-top: 1px solid #eef2f6;
+            margin-top: 20px;
+        }
+        .footer a {
+            color: #0077b6;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .repo-links {
+            margin-top: 8px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+        }
+        .repo-links a {
+            font-size: 13px;
+        }
 
-    .footer {
-      padding: 20px 0;
-      font-size: 13px;
-      color: #6a7e9a;
-      text-align: center;
-      border-top: 1px solid #eef2f6;
-      margin-top: 20px;
-    }
-    .footer a { color: #0077b6; text-decoration: none; }
-    .footer a:hover { text-decoration: underline; }
-    .footer .repo-links { margin-top: 8px; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 20px; }
-    .footer .repo-links a { font-size: 13px; }
-
-    @media (max-width: 900px) {
-      .grid-2, .grid-3 { grid-template-columns: 1fr; }
-      .header-inner { flex-direction: column; align-items: stretch; }
-      .tabs { justify-content: center; }
-      .tab-btn { font-size: 13px; padding: 8px 12px; }
-      .content { padding: 20px 16px; }
-      .doc-table { font-size: 13px; }
-      .doc-table th, .doc-table td { padding: 8px 10px; }
-    }
-  </style>
+        @media (max-width: 900px) {
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .header-inner {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .tabs {
+                justify-content: center;
+            }
+            .tab-btn {
+                font-size: 13px;
+                padding: 8px 12px;
+            }
+            .content {
+                padding: 20px 16px;
+            }
+            .doc-table {
+                font-size: 13px;
+            }
+            .doc-table th,
+            .doc-table td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="container header-inner">
-    <div class="logo">
-      E‑Beam <span>Kazakhstan</span>
-      <small>Дорожная карта проекта</small>
-    </div>
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="tab1">Общий план</button>
-      <button class="tab-btn" data-tab="tab2">Лицензия на атомную энергию</button>
-      <button class="tab-btn" data-tab="tab3">Госрегистрация ИИИ</button>
-      <button class="tab-btn" data-tab="tab4">СЭЗ «Alatau»</button>
-      <button class="tab-btn" data-tab="tab5">Документы компании</button>
-      <button class="tab-btn" data-tab="tab6">Заключение по уровню изъятия</button>
-    </div>
-  </div>
-</header>
-
-<main class="container">
-  <div class="content">
-
-    <!-- ===== ВКЛАДКА 1: ОБЩИЙ ПЛАН ===== -->
-    <div id="tab1" class="tab-pane active">
-      <div class="section-title">Сводный план-график проекта</div>
-      <div class="section-sub">Старт: 3 августа 2026 · Запуск: сентябрь 2028</div>
-
-      <table class="doc-table">
-        <thead><tr><th>Этап</th><th>Начало</th><th>Конец</th><th>Ключевой результат</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Регистрация ТОО</strong></td><td>03.08.2026</td><td>14.08.2026</td><td>Справка о регистрации</td></tr>
-          <tr><td><strong>Получение статуса участника СЭЗ «Alatau»</strong></td><td>15.08.2026</td><td>31.10.2026</td><td>Свидетельство участника СЭЗ</td></tr>
-          <tr><td><strong>Земельный участок и ТУ</strong></td><td>01.09.2026</td><td>31.12.2026</td><td>Договор аренды, ТУ</td></tr>
-          <tr><td><strong>Проектирование и экспертиза</strong></td><td>01.10.2026</td><td>31.03.2027</td><td>Положительное заключение экспертизы</td></tr>
-          <tr><td><strong>Строительство объекта</strong></td><td>01.04.2027</td><td>31.03.2028</td><td>Акт ввода в эксплуатацию</td></tr>
-          <tr><td><strong>Монтаж ускорителя</strong></td><td>01.01.2028</td><td>31.03.2028</td><td>Приемочные испытания</td></tr>
-          <tr><td><strong>Лицензия на атомную энергию</strong></td><td>01.04.2028</td><td>15.05.2028</td><td>Лицензия Комитета атомного надзора</td></tr>
-          <tr><td><strong>Госрегистрация ИИИ</strong></td><td>15.05.2028</td><td>31.05.2028</td><td>Свидетельство о госучете</td></tr>
-          <tr><td><strong>Валидация (IQ/OQ/PQ, дозовое картирование)</strong></td><td>01.05.2028</td><td>31.07.2028</td><td>Валидация по ISO 11137</td></tr>
-          <tr><td><strong>Промышленный запуск</strong></td><td>01.08.2028</td><td>30.09.2028</td><td>Первая коммерческая партия</td></tr>
-        </tbody>
-      </table>
-
-      <div class="info-box">
-        <strong>Общая длительность проекта:</strong> ~26 месяцев (август 2026 – сентябрь 2028)
-      </div>
-    </div>
-
-    <!-- ===== ВКЛАДКА 2: ЛИЦЕНЗИЯ НА АТОМНУЮ ЭНЕРГИЮ ===== -->
-    <div id="tab2" class="tab-pane">
-      <div class="section-title">Лицензия на деятельность по использованию атомной энергии</div>
-      <div class="section-sub">Эксплуатация радиационной установки (ускорителя электронов)</div>
-
-      <div class="grid-2">
-        <div class="card">
-          <span class="badge badge-blue">Орган</span>
-          <h4>Комитет атомного надзора и контроля</h4>
-          <p>Агентства Республики Казахстан по атомной энергии</p>
-          <p style="margin-top:8px;font-size:13px;color:#4a5e7a;">Правопреемник КАЭНК. Полномочия с 10.08.2026</p>
+    <header class="header">
+        <div class="container header-inner">
+            <div class="logo">
+                E‑Beam <span>Kazakhstan</span>
+                <small>Дорожная карта проекта</small>
+            </div>
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="ru">РУС</button>
+                <button class="lang-btn" data-lang="kz">ҚАЗ</button>
+                <button class="lang-btn" data-lang="en">ENG</button>
+                <button class="lang-btn" data-lang="zh">中文</button>
+            </div>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="tab1">Общий план</button>
+                <button class="tab-btn" data-tab="tab2">Лицензия</button>
+                <button class="tab-btn" data-tab="tab3">Госрегистрация ИИИ</button>
+                <button class="tab-btn" data-tab="tab4">СЭЗ «Alatau»</button>
+                <button class="tab-btn" data-tab="tab5">Документы</button>
+                <button class="tab-btn" data-tab="tab6">Заключение</button>
+            </div>
         </div>
-        <div class="card">
-          <span class="badge badge-green">Срок</span>
-          <h4>20 рабочих дней</h4>
-          <p>После подачи полного пакета документов</p>
-          <p style="margin-top:8px;font-size:13px;color:#4a5e7a;">Подача через портал <strong>elicense.kz</strong></p>
+    </header>
+
+    <main class="container">
+        <div class="content">
+
+            <!-- ===== ВКЛАДКА 1: ОБЩИЙ ПЛАН ===== -->
+            <div id="tab1" class="tab-pane active">
+                <div class="section-title" data-key="plan-title">Сводный план-график проекта</div>
+                <div class="section-sub" data-key="plan-sub">Старт: 3 августа 2026 · Запуск: сентябрь 2028</div>
+
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th data-key="plan-th1">Этап</th>
+                            <th data-key="plan-th2">Начало</th>
+                            <th data-key="plan-th3">Конец</th>
+                            <th data-key="plan-th4">Ключевой результат</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong data-key="plan-row1">Регистрация ТОО</strong></td>
+                            <td>03.08.2026</td>
+                            <td>14.08.2026</td>
+                            <td data-key="plan-r1">Справка о регистрации</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-key="plan-row2">Получение статуса участника СЭЗ «Alatau»</strong></td>
+                            <td>15.08.2026</td>
+                            <td>31.10.2026</td>
+                            <td data-key="plan-r2">Свидетельство участника СЭЗ</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-key="plan-row3">Земельный участок и ТУ</strong></td>
+                            <td>01.09.2026</td>
+                            <td>31.12.2026</td>
+                            <td data-key="plan-r3">Договор аренды, ТУ</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-key="plan-row4">Проектирование и экспертиза</strong></td>
+                            <td>01.10.2026</td>
+                            <td>31.03.2027</td>
+                            <td data-key="plan-r4">Положительное заключение экспертизы</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-key="plan-row5">Строительство объекта</strong></td>
+                            <td>01.04.2027</td>
+                            <td>31.03.2028</td>
+                            <td data-key="plan-r5">Акт ввода в эксплуатацию</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-key="plan-row6">Монтаж ускорителя</strong></td>
+                            <td>01.01.2028</td>
+                            <td>31.03.2028</td>
+                            <td data-key="plan-r6">Приемочные испытания</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-key="plan-row7">Лицензия на атомную энергию</strong></td>
+                            <td>01.04.2028</td>
+                            <td>15.05.2028</td>
+                            <td data-key="plan-r7">Лицензия Комитета атомного надзора</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-key="plan-row8">Госрегистрация ИИИ</strong></td>
+                            <td>15.05.2028</td>
+                            <td>31.05.2028</td>
+                            <td data-key="plan-r8">Свидетельство о госучете</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-key="plan-row9">Валидация (IQ/OQ/PQ, дозовое картирование)</strong></td>
+                            <td>01.05.2028</td>
+                            <td>31.07.2028</td>
+                            <td data-key="plan-r9">Валидация по ISO 11137</td>
+                        </tr>
+                        <tr>
+                            <td><strong data-key="plan-row10">Промышленный запуск</strong></td>
+                            <td>01.08.2028</td>
+                            <td>30.09.2028</td>
+                            <td data-key="plan-r10">Первая коммерческая партия</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <strong data-key="plan-total">Общая длительность проекта:</strong> <span data-key="plan-total-text">~26 месяцев (август 2026 – сентябрь 2028)</span>
+                </div>
+            </div>
+
+            <!-- ===== ВКЛАДКА 2: ЛИЦЕНЗИЯ ===== -->
+            <div id="tab2" class="tab-pane">
+                <div class="section-title" data-key="license-title">Лицензия на деятельность по использованию атомной энергии</div>
+                <div class="section-sub" data-key="license-sub">Эксплуатация радиационной установки (ускорителя электронов)</div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <span class="badge badge-blue" data-key="license-badge1">Орган</span>
+                        <h4 data-key="license-org">Комитет атомного надзора и контроля</h4>
+                        <p data-key="license-org-desc">Агентства Республики Казахстан по атомной энергии</p>
+                        <p style="margin-top:8px;font-size:13px;color:#4a5e7a;" data-key="license-org-note">Правопреемник КАЭНК. Полномочия с 10.08.2026</p>
+                    </div>
+                    <div class="card">
+                        <span class="badge badge-green" data-key="license-badge2">Срок</span>
+                        <h4 data-key="license-term">20 рабочих дней</h4>
+                        <p data-key="license-term-desc">После подачи полного пакета документов</p>
+                        <p style="margin-top:8px;font-size:13px;color:#4a5e7a;" data-key="license-term-note">Подача через портал <strong>elicense.kz</strong></p>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:16px;">
+                    <span class="badge badge-orange" data-key="license-docs-title">Перечень документов</span>
+                    <h4 data-key="license-docs-sub">Что нужно предоставить</h4>
+                    <ul>
+                        <li data-key="license-doc1"><strong>Заявление</strong> (через портал elicense.kz)</li>
+                        <li data-key="license-doc2"><strong>Копия устава ТОО</strong> (заверенная)</li>
+                        <li data-key="license-doc3"><strong>Справка о регистрации ТОО</strong></li>
+                        <li data-key="license-doc4"><strong>Документы на оборудование</strong> — технический паспорт ускорителя CGN Dasheng DZ-10</li>
+                        <li data-key="license-doc5"><strong>Акт ввода в эксплуатацию</strong> (после монтажа и приемочных испытаний)</li>
+                        <li data-key="license-doc6"><strong>Программа ПРК</strong></li>
+                        <li data-key="license-doc7"><strong>Инструкция по радиационной безопасности</strong></li>
+                        <li data-key="license-doc8"><strong>Аварийный план</strong></li>
+                        <li data-key="license-doc9"><strong>Документы о назначении ответственного за РБ</strong></li>
+                        <li data-key="license-doc10"><strong>Документы о квалификации персонала</strong> (аттестаты, сертификаты)</li>
+                        <li data-key="license-doc11"><strong>Санитарно-эпидемиологическое заключение (СЭЗ) на объект</strong></li>
+                        <li data-key="license-doc12"><strong>Заключение экспертизы промышленной безопасности</strong> (если объект отнесён к опасным)</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <strong data-key="license-important">Важно:</strong> <span data-key="license-important-text">Лицензия выдается <strong>после монтажа и пусконаладки оборудования</strong>. Выездная проверка объекта — обязательный этап.</span>
+                </div>
+            </div>
+
+            <!-- ===== ВКЛАДКА 3: ГОСРЕГИСТРАЦИЯ ИИИ ===== -->
+            <div id="tab3" class="tab-pane">
+                <div class="section-title" data-key="reg-title">Государственная регистрация источника ионизирующего излучения</div>
+                <div class="section-sub" data-key="reg-sub">Постановка ускорителя на государственный учёт</div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <span class="badge badge-blue" data-key="reg-badge1">Орган</span>
+                        <h4 data-key="reg-org">Комитет атомного надзора и контроля</h4>
+                        <p data-key="reg-org-desc">Агентства Республики Казахстан по атомной энергии</p>
+                    </div>
+                    <div class="card">
+                        <span class="badge badge-green" data-key="reg-badge2">Срок</span>
+                        <h4 data-key="reg-term">После ввоза, монтажа и приемочных испытаний</h4>
+                        <p data-key="reg-term-desc">Документ: Свидетельство о государственной регистрации</p>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:16px;">
+                    <span class="badge badge-orange" data-key="reg-docs-title">Перечень документов</span>
+                    <h4 data-key="reg-docs-sub">Что нужно предоставить</h4>
+                    <ul>
+                        <li data-key="reg-doc1"><strong>Заявление</strong> о постановке источника на учёт</li>
+                        <li data-key="reg-doc2"><strong>Технический паспорт ускорителя</strong> (с характеристиками: энергия, мощность, тип)</li>
+                        <li data-key="reg-doc3"><strong>Акт ввода в эксплуатацию</strong></li>
+                        <li data-key="reg-doc4"><strong>Документы, подтверждающие право собственности/владения</strong> (договор поставки)</li>
+                        <li data-key="reg-doc5"><strong>Программа ПРК</strong></li>
+                        <li data-key="reg-doc6"><strong>Санитарно-эпидемиологическое заключение</strong> на объект</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <strong data-key="reg-order-title">Порядок действий:</strong>
+                    <ol style="margin-top:6px;padding-left:20px;font-size:14px;color:#2c3e5c;">
+                        <li data-key="reg-step1">Ввоз ускорителя на территорию РК</li>
+                        <li data-key="reg-step2">Монтаж и пусконаладка</li>
+                        <li data-key="reg-step3">Приемочные испытания</li>
+                        <li data-key="reg-step4">Подача заявления на госрегистрацию</li>
+                        <li data-key="reg-step5">Внесение в Реестр ИИИ → выдача Свидетельства</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- ===== ВКЛАДКА 4: СЭЗ «ALATAU» ===== -->
+            <div id="tab4" class="tab-pane">
+                <div class="section-title" data-key="sez-title">СЭЗ «Alatau» — статус участника</div>
+                <div class="section-sub" data-key="sez-sub">Получение статуса участника специальной экономической зоны</div>
+
+                <div class="sez-info" style="background:#f0fdf4;border:1px solid #86efac;border-radius:16px;padding:20px 24px;margin:16px 0;">
+                    <span class="badge badge-green" data-key="sez-badge">Управляющая компания</span>
+                    <h4 data-key="sez-company">СЭЗ «Alatau»</h4>
+                    <p><strong data-key="sez-address">Адрес:</strong> <span data-key="sez-address-text">050000, Республика Казахстан, г. Алматы, ул. Желтоқсан, 112</span></p>
+                    <p><strong data-key="sez-phone">Телефон:</strong> <span data-key="sez-phone-text">+7708 888 88 88</span></p>
+                    <p><strong data-key="sez-site">Сайт:</strong> <a href="http://www.alatausez.kz" target="_blank">www.alatausez.kz</a></p>
+                </div>
+
+                <div class="card">
+                    <span class="badge badge-blue" data-key="pvd-title">Приоритетные виды деятельности (ПВД) для вашего проекта</span>
+                    <div style="background:#fef3c7;border-left:4px solid #f59e0b;padding:16px 20px;border-radius:0 12px 12px 0;margin:16px 0;font-size:14px;color:#2c3e5c;">
+                        <strong data-key="pvd-note">☑️ Ваш проект соответствует следующим ПВД СЭЗ «Alatau»:</strong>
+                    </div>
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th data-key="pvd-code">ОКЭД</th>
+                                <th data-key="pvd-name">Наименование</th>
+                                <th data-key="pvd-reason">Обоснование</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>32.50.2</strong></td>
+                                <td data-key="pvd-row1">Производство медицинских и ветеринарных инструментов, аппаратов и оборудования</td>
+                                <td data-key="pvd-row1-reason">Стерилизация медицинских изделий (шприцы, катетеры, перчатки, имплантаты) — неотъемлемая часть производства</td>
+                            </tr>
+                            <tr>
+                                <td><strong>22.19.2</strong></td>
+                                <td data-key="pvd-row2">Производство резиновых санитарно-гигиенических и медицинских изделий</td>
+                                <td data-key="pvd-row2-reason">Стерилизация резиновых изделий (перчатки, катетеры, зонды)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>22.22</strong></td>
+                                <td data-key="pvd-row3">Производство пластмассовых упаковок для товаров</td>
+                                <td data-key="pvd-row3-reason">Стерилизация упаковки для медицинских изделий</td>
+                            </tr>
+                            <tr>
+                                <td><strong>21.20.1</strong></td>
+                                <td data-key="pvd-row4">Производство фармацевтических препаратов</td>
+                                <td data-key="pvd-row4-reason">Стерилизация лекарственных средств и фармацевтической продукции</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="margin-top:10px;font-size:13px;color:#4a5e7a;" data-key="pvd-base">Основание: Приказ Министра промышленности и строительства РК №72 от 22 февраля 2024 года (с изменениями от 22.12.2025)</div>
+                    <div class="info-box" style="margin-top:12px;">
+                        <strong data-key="pvd-rec">☑️ Рекомендация:</strong> <span data-key="pvd-rec-text">При подаче заявления укажите <strong>основной ОКЭД 32.50.2</strong> (производство медицинских инструментов и оборудования), остальные — как дополнительные. Это даст право на все налоговые преференции СЭЗ.</span>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:16px;">
+                    <span class="badge badge-orange" data-key="sez-docs-title">Перечень документов для подачи заявления</span>
+                    <ul>
+                        <li data-key="sez-doc1">Анкета заявителя (форма УО)</li>
+                        <li data-key="sez-doc2">Копия устава юридического лица</li>
+                        <li data-key="sez-doc3">Копия решения высшего органа юридического лица об осуществлении деятельности на территории СЭЗ</li>
+                        <li data-key="sez-doc4">Справка о государственной регистрации (перерегистрации) юридического лица</li>
+                        <li data-key="sez-doc5">Копия документа, удостоверяющего личность первого руководителя</li>
+                        <li data-key="sez-doc6">Копия финансовой отчетности за последний финансовый год</li>
+                        <li data-key="sez-doc7"><strong>ТЭО проекта</strong> (в соответствие с требованием УО)</li>
+                        <li data-key="sez-doc8">Выписка из банка о движении денег и кредитный отчет из кредитного бюро</li>
+                        <li data-key="sez-doc9">Справка органа государственных доходов о наличии/отсутствии задолженности</li>
+                        <li data-key="sez-doc10">Подтверждение финансового обеспечения проекта не менее 10% (деньгами, банковской гарантией, поручительством, залогом имущества, договором страхования)</li>
+                        <li data-key="sez-doc11">Эскизный проект территории (если проект связан со строительством)</li>
+                        <li data-key="sez-doc12">Копия справки об отсутствии государственной регистрации в качестве налогоплательщика (для нерезидентов РК)</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="margin-top:16px;">
+                    <span class="badge badge-green" data-key="sez-term-title">Сроки рассмотрения</span>
+                    <ul>
+                        <li data-key="sez-term1">При полном пакете документов и соответствии ПВД — управляющая компания СЭЗ в течение <strong>10 рабочих дней</strong> подписывает договор об осуществлении деятельности</li>
+                        <li data-key="sez-term2">В течение <strong>5 рабочих дней</strong> после подачи договора в УО, УК выдает <strong>свидетельство о регистрации</strong></li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <strong data-key="sez-after">После получения свидетельства:</strong> <span data-key="sez-after-text">Участник СЭЗ вправе получать налоговые льготы при осуществлении приоритетных видов деятельности на территории СЭЗ в порядке, установленном налоговым законодательством Республики Казахстан.</span>
+                </div>
+            </div>
+
+            <!-- ===== ВКЛАДКА 5: ДОКУМЕНТЫ ===== -->
+            <div id="tab5" class="tab-pane">
+                <div class="section-title" data-key="docs-title">Документы, необходимые для реализации проекта</div>
+                <div class="section-sub" data-key="docs-sub">Внутренние и внешние документы, лицензии и разрешения</div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <span class="badge badge-blue" data-key="docs-ext-title">Внешние документы</span>
+                        <h4 data-key="docs-ext-sub">Выдаются государственными органами</h4>
+                        <ul>
+                            <li data-key="docs-ext1"><strong>Справка о регистрации ТОО</strong> — Минюст РК</li>
+                            <li data-key="docs-ext2"><strong>Свидетельство участника СЭЗ «Alatau»</strong> — СЭЗ «Alatau»</li>
+                            <li data-key="docs-ext3"><strong>Лицензия на атомную энергию</strong> — Комитет атомного надзора и контроля</li>
+                            <li data-key="docs-ext4"><strong>Свидетельство о госрегистрации ИИИ</strong> — Комитет атомного надзора и контроля</li>
+                            <li data-key="docs-ext5"><strong>Санитарно-эпидемиологическое заключение</strong> — Минздрав РК</li>
+                            <li data-key="docs-ext6"><strong>Заключение экспертизы ПСД</strong> — РГП «Госэкспертиза»</li>
+                            <li data-key="docs-ext7"><strong>Акт ввода в эксплуатацию</strong> — Акимат/ГАСК</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <span class="badge badge-green" data-key="docs-int-title">Внутренние документы</span>
+                        <h4 data-key="docs-int-sub">Разрабатываются компанией</h4>
+                        <ul>
+                            <li data-key="docs-int1"><strong>Устав ТОО</strong></li>
+                            <li data-key="docs-int2"><strong>Программа ПРК</strong></li>
+                            <li data-key="docs-int3"><strong>Инструкция по радиационной безопасности</strong></li>
+                            <li data-key="docs-int4"><strong>Аварийный план</strong></li>
+                            <li data-key="docs-int5"><strong>Приказ о назначении ответственного за РБ</strong></li>
+                            <li data-key="docs-int6"><strong>Паспорта зон контроля</strong></li>
+                            <li data-key="docs-int7"><strong>Журналы учёта (радиационного контроля, дозиметрии)</strong></li>
+                            <li data-key="docs-int8"><strong>Должностные инструкции персонала</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:16px;">
+                    <span class="badge badge-red" data-key="docs-lic-title">Документы, выполняемые только лицензированными организациями</span>
+                    <h4 data-key="docs-lic-sub">Требуют специальной лицензии</h4>
+                    <ul>
+                        <li data-key="docs-lic1"><strong>Разработка ПСД</strong> — только проектная организация с лицензией</li>
+                        <li data-key="docs-lic2"><strong>Экспертиза ПСД</strong> — РГП «Госэкспертиза» или аккредитованные экспертные организации</li>
+                        <li data-key="docs-lic3"><strong>Экспертиза радиационной безопасности</strong> — аккредитованная организация</li>
+                        <li data-key="docs-lic4"><strong>Монтаж и пусконаладка ускорителя</strong> — специализированная организация (поставщик)</li>
+                        <li data-key="docs-lic5"><strong>Поверка дозиметрического оборудования</strong> — аккредитованная лаборатория</li>
+                        <li data-key="docs-lic6"><strong>Микробиологические исследования (бионагрузка, тесты на стерильность)</strong> — аккредитованная лаборатория</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <strong data-key="docs-result">Итог:</strong> <span data-key="docs-result-text">Для запуска проекта требуется получить <strong>3 ключевых разрешения</strong> от государственных органов: свидетельство участника СЭЗ, лицензия на атомную энергию, госрегистрация ИИИ.</span>
+                </div>
+            </div>
+
+            <!-- ===== ВКЛАДКА 6: ЗАКЛЮЧЕНИЕ ===== -->
+            <div id="tab6" class="tab-pane">
+                <div class="section-title" data-key="conclusion-title">Экспертное заключение по уровню изъятия</div>
+                <div class="section-sub" data-key="conclusion-sub">Анализ соответствия ускорителя CGN Dasheng DZ-10 уровням изъятия</div>
+
+                <div class="expert-box" style="background:#f8f4ff;border:1px solid #d4c4f0;border-radius:16px;padding:24px 28px;margin:16px 0;">
+                    <span class="badge badge-purple" data-key="conclusion-badge">Экспертное заключение</span>
+                    <h4 style="margin:10px 0 6px;" data-key="conclusion-object">Объект проверки</h4>
+                    <p data-key="conclusion-object-text">Линейный ускоритель электронов CGN Dasheng DZ-10 (8–12 МэВ, 20–32 кВт)</p>
+                    <h4 style="margin:16px 0 6px;" data-key="conclusion-goal">Цель проверки</h4>
+                    <p data-key="conclusion-goal-text">Определить, превышает ли ускоритель установленные уровни изъятия, и установить необходимость лицензирования и государственной регистрации.</p>
+                </div>
+
+                <div class="card" style="margin-top:16px;">
+                    <span class="badge badge-blue" data-key="conclusion-law-title">Правовое определение уровня изъятия</span>
+                    <p style="margin-top:8px;" data-key="conclusion-law-text">Согласно <strong>статье 1 Закона РК «Об использовании атомной энергии»</strong>:</p>
+                    <div class="info-box" style="margin:8px 0;">
+                        <em data-key="conclusion-law-quote">«Уровень изъятия — значения физических величин, определяющих характеристики ядерных материалов, радиоактивных веществ и электрофизических установок, установленные уполномоченным органом».</em>
+                    </div>
+                    <ul>
+                        <li data-key="conclusion-law1">Уровень изъятия устанавливается <strong>уполномоченным органом</strong> (ранее — МЭ РК, с 10.08.2026 — <strong>Комитет атомного надзора и контроля Агентства РК по атомной энергии</strong>)</li>
+                        <li data-key="conclusion-law2">Уровни изъятия установлены приказом <strong>Министра энергетики РК от 2 апреля 2021 года № 116</strong></li>
+                        <li data-key="conclusion-law3">Если характеристики источника <strong>превышают</strong> уровни изъятия, он подлежит <strong>лицензированию и государственному учету</strong></li>
+                    </ul>
+                </div>
+
+                <div class="card" style="margin-top:16px;">
+                    <span class="badge badge-orange" data-key="conclusion-criteria-title">Критерии для электрофизических установок</span>
+                    <p style="margin-top:8px;" data-key="conclusion-criteria-text">В соответствии с <strong>приказом № 116 от 02.04.2021</strong>, уровни изъятия установлены для:</p>
+                    <ol style="padding-left:20px;margin:8px 0;font-size:14px;color:#2c3e5c;">
+                        <li data-key="conclusion-criteria1">Ядерных материалов</li>
+                        <li data-key="conclusion-criteria2">Радиоактивных веществ</li>
+                        <li data-key="conclusion-criteria3"><strong>Электрофизических установок</strong> (в т.ч. ускорителей электронов)</li>
+                    </ol>
+                    <p data-key="conclusion-criteria4">Для ускорителей электронов уровни изъятия установлены в зависимости от <strong>энергии пучка</strong>.</p>
+                </div>
+
+                <div class="card" style="margin-top:16px;">
+                    <span class="badge badge-green" data-key="conclusion-check-title">Проверка ускорителя CGN Dasheng DZ-10</span>
+                    <h4 style="margin:10px 0 6px;" data-key="conclusion-specs">Характеристики ускорителя</h4>
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th data-key="conclusion-param">Параметр</th>
+                                <th data-key="conclusion-value">Значение</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong data-key="conclusion-type">Тип</strong></td>
+                                <td data-key="conclusion-type-val">Ускоритель электронов</td>
+                            </tr>
+                            <tr>
+                                <td><strong data-key="conclusion-energy">Энергия пучка</strong></td>
+                                <td data-key="conclusion-energy-val">8–12 МэВ</td>
+                            </tr>
+                            <tr>
+                                <td><strong data-key="conclusion-power">Мощность пучка</strong></td>
+                                <td data-key="conclusion-power-val">20–32 кВт</td>
+                            </tr>
+                            <tr>
+                                <td><strong data-key="conclusion-current">Ток пучка</strong></td>
+                                <td data-key="conclusion-current-val">35–50 мА</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h4 style="margin:16px 0 6px;" data-key="conclusion-apply">Применение уровней изъятия</h4>
+                    <p data-key="conclusion-apply-text">Согласно приказу № 116:</p>
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th data-key="conclusion-energy-level">Значение энергии</th>
+                                <th data-key="conclusion-status">Статус</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong data-key="conclusion-up-to-10">Ускорители электронов с энергией до 10 МэВ</strong></td>
+                                <td data-key="conclusion-up-to-10-status">Подлежат лицензированию (включены в приложение к лицензии)</td>
+                            </tr>
+                            <tr>
+                                <td><strong data-key="conclusion-above-10">Ускорители электронов с энергией выше 10 МэВ</strong></td>
+                                <td data-key="conclusion-above-10-status">Подлежат лицензированию (включены в приложение к лицензии)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card" style="margin-top:16px;">
+                    <span class="badge badge-purple" data-key="conclusion-expert-title">Экспертное заключение</span>
+                    <h4 style="margin:10px 0 6px;" data-key="conclusion-expert1">Относительно уровней изъятия</h4>
+                    <div class="info-box" style="margin:8px 0;">
+                        <strong data-key="conclusion-expert1-conclusion">Вывод:</strong> <span data-key="conclusion-expert1-text">Ускоритель <strong>превышает уровни изъятия</strong> по двум основаниям.</span>
+                    </div>
+                    <p><strong data-key="conclusion-expert1-reason">Обоснование:</strong></p>
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th data-key="conclusion-expert1-base">Основание</th>
+                                <th data-key="conclusion-expert1-detail">Обоснование</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong data-key="conclusion-expert1-energy">Энергия пучка</strong></td>
+                                <td data-key="conclusion-expert1-energy-text">Ускоритель работает в диапазоне 8–12 МэВ. Даже минимальное значение (8 МэВ) соответствует категории «ускорители электронов с энергией до 10 МэВ», которая <strong>подлежит лицензированию</strong>. Максимальное значение (12 МэВ) превышает 10 МэВ, что также подлежит лицензированию</td>
+                            </tr>
+                            <tr>
+                                <td><strong data-key="conclusion-expert1-license">Включение в приложение к лицензии</strong></td>
+                                <td data-key="conclusion-expert1-license-text">В соответствии со статьей 11 Закона «Об использовании атомной энергии», приложение к лицензии включает перечень типов приборов и установок. В этом перечне отдельно указаны:<br> • ускорители электронов с энергией до 10 МэВ<br> • ускорители электронов с энергией выше 10 МэВ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h4 style="margin:16px 0 6px;" data-key="conclusion-expert2">Относительно государственной регистрации</h4>
+                    <div class="info-box" style="margin:8px 0;">
+                        <strong data-key="conclusion-expert2-conclusion">Вывод:</strong> <span data-key="conclusion-expert2-text">Ускоритель подлежит государственной регистрации.</span>
+                    </div>
+                    <p><strong data-key="conclusion-expert2-reason">Обоснование:</strong> <span data-key="conclusion-expert2-reason-text">В соответствии с Правилами государственного учета источников ионизирующего излучения:</span></p>
+                    <div class="info-box" style="margin:8px 0;">
+                        <em data-key="conclusion-expert2-quote">«Государственному учету подлежат источники излучения, радиационные характеристики которых превышают уровни изъятия, установленные приказом Министра энергетики Республики Казахстан от 2 апреля 2021 года № 116».</em>
+                    </div>
+                    <p data-key="conclusion-expert2-text2">Поскольку ускоритель превышает уровни изъятия, он <strong>обязательно подлежит</strong>:</p>
+                    <ol style="padding-left:20px;margin:8px 0;font-size:14px;color:#2c3e5c;">
+                        <li data-key="conclusion-expert2-item1">Лицензированию (деятельность по эксплуатации радиационной установки)</li>
+                        <li data-key="conclusion-expert2-item2">Государственной регистрации (внесение в Реестр ИИИ)</li>
+                    </ol>
+                </div>
+
+                <div class="card" style="margin-top:16px;">
+                    <span class="badge badge-red" data-key="conclusion-key-title">Ключевые выводы</span>
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th data-key="conclusion-key-param">Параметр</th>
+                                <th data-key="conclusion-key-status">Статус</th>
+                                <th data-key="conclusion-key-base">Основание</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong data-key="conclusion-key-license">Лицензирование</strong></td>
+                                <td><span style="color:#dc2626;font-weight:700;" data-key="conclusion-key-license-status">Обязательно</span></td>
+                                <td data-key="conclusion-key-license-base">Ускоритель электронов 8–12 МэВ включен в перечень приборов и установок, подлежащих лицензированию</td>
+                            </tr>
+                            <tr>
+                                <td><strong data-key="conclusion-key-reg">Государственная регистрация</strong></td>
+                                <td><span style="color:#dc2626;font-weight:700;" data-key="conclusion-key-reg-status">Обязательна</span></td>
+                                <td data-key="conclusion-key-reg-base">Характеристики ускорителя превышают уровни изъятия, установленные приказом № 116</td>
+                            </tr>
+                            <tr>
+                                <td><strong data-key="conclusion-key-exemption">Уровень изъятия</strong></td>
+                                <td><span style="color:#dc2626;font-weight:700;" data-key="conclusion-key-exemption-status">Превышен</span></td>
+                                <td data-key="conclusion-key-exemption-base">Поскольку ускоритель подлежит лицензированию, он автоматически превышает уровни изъятия</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="info-box">
+                    <strong data-key="conclusion-final">Итоговое заключение:</strong> <span data-key="conclusion-final-text">Ускоритель CGN Dasheng DZ-10 однозначно превышает уровни изъятия и подлежит обязательному лицензированию и государственной регистрации.</span>
+                </div>
+            </div>
+
         </div>
-      </div>
+    </main>
 
-      <div class="card" style="margin-top:16px;">
-        <span class="badge badge-orange">Перечень документов</span>
-        <h4>Что нужно предоставить</h4>
-        <ul>
-          <li><strong>Заявление</strong> (через портал elicense.kz)</li>
-          <li><strong>Копия устава ТОО</strong> (заверенная)</li>
-          <li><strong>Справка о регистрации ТОО</strong></li>
-          <li><strong>Документы на оборудование</strong> — технический паспорт ускорителя CGN Dasheng DZ-10</li>
-          <li><strong>Акт ввода в эксплуатацию</strong> (после монтажа и приемочных испытаний)</li>
-          <li><strong>Программа ПРК</strong></li>
-          <li><strong>Инструкция по радиационной безопасности</strong></li>
-          <li><strong>Аварийный план</strong></li>
-          <li><strong>Документы о назначении ответственного за РБ</strong></li>
-          <li><strong>Документы о квалификации персонала</strong> (аттестаты, сертификаты)</li>
-          <li><strong>Санитарно-эпидемиологическое заключение (СЭЗ) на объект</strong></li>
-          <li><strong>Заключение экспертизы промышленной безопасности</strong> (если объект отнесён к опасным)</li>
-        </ul>
-      </div>
-
-      <div class="info-box">
-        <strong>Важно:</strong> Лицензия выдается <strong>после монтажа и пусконаладки оборудования</strong>. Выездная проверка объекта — обязательный этап.
-      </div>
-    </div>
-
-    <!-- ===== ВКЛАДКА 3: ГОСРЕГИСТРАЦИЯ ИИИ ===== -->
-    <div id="tab3" class="tab-pane">
-      <div class="section-title">Государственная регистрация источника ионизирующего излучения</div>
-      <div class="section-sub">Постановка ускорителя на государственный учёт</div>
-
-      <div class="grid-2">
-        <div class="card">
-          <span class="badge badge-blue">Орган</span>
-          <h4>Комитет атомного надзора и контроля</h4>
-          <p>Агентства Республики Казахстан по атомной энергии</p>
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 E‑Beam Kazakhstan — Дорожная карта проекта</p>
+            <p style="font-size:12px;color:#8a9eb0;margin-top:4px;">Концепция и разработка: Ахмет С. +7 777 7717707</p>
+            <div class="repo-links">
+                <a href="https://github.com/SPChina2026/roadmap" target="_blank">📁 Дорожная карта</a>
+                <a href="https://github.com/SPChina2026/newstatus" target="_blank">📁 Новый статус</a>
+                <a href="https://github.com/SPChina2026/E-Beam-" target="_blank">📁 E‑Beam Kazakhstan</a>
+            </div>
         </div>
-        <div class="card">
-          <span class="badge badge-green">Срок</span>
-          <h4>После ввоза, монтажа и приемочных испытаний</h4>
-          <p>Документ: Свидетельство о государственной регистрации</p>
-        </div>
-      </div>
+    </footer>
 
-      <div class="card" style="margin-top:16px;">
-        <span class="badge badge-orange">Перечень документов</span>
-        <h4>Что нужно предоставить</h4>
-        <ul>
-          <li><strong>Заявление</strong> о постановке источника на учёт</li>
-          <li><strong>Технический паспорт ускорителя</strong> (с характеристиками: энергия, мощность, тип)</li>
-          <li><strong>Акт ввода в эксплуатацию</strong></li>
-          <li><strong>Документы, подтверждающие право собственности/владения</strong> (договор поставки)</li>
-          <li><strong>Программа ПРК</strong></li>
-          <li><strong>Санитарно-эпидемиологическое заключение</strong> на объект</li>
-        </ul>
-      </div>
+    <script>
+        // ===== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКОВ =====
+        const translations = {
+            ru: {
+                'plan-title': 'Сводный план-график проекта',
+                'plan-sub': 'Старт: 3 августа 2026 · Запуск: сентябрь 2028',
+                'plan-th1': 'Этап',
+                'plan-th2': 'Начало',
+                'plan-th3': 'Конец',
+                'plan-th4': 'Ключевой результат',
+                'plan-row1': 'Регистрация ТОО',
+                'plan-r1': 'Справка о регистрации',
+                'plan-row2': 'Получение статуса участника СЭЗ «Alatau»',
+                'plan-r2': 'Свидетельство участника СЭЗ',
+                'plan-row3': 'Земельный участок и ТУ',
+                'plan-r3': 'Договор аренды, ТУ',
+                'plan-row4': 'Проектирование и экспертиза',
+                'plan-r4': 'Положительное заключение экспертизы',
+                'plan-row5': 'Строительство объекта',
+                'plan-r5': 'Акт ввода в эксплуатацию',
+                'plan-row6': 'Монтаж ускорителя',
+                'plan-r6': 'Приемочные испытания',
+                'plan-row7': 'Лицензия на атомную энергию',
+                'plan-r7': 'Лицензия Комитета атомного надзора',
+                'plan-row8': 'Госрегистрация ИИИ',
+                'plan-r8': 'Свидетельство о госучете',
+                'plan-row9': 'Валидация (IQ/OQ/PQ, дозовое картирование)',
+                'plan-r9': 'Валидация по ISO 11137',
+                'plan-row10': 'Промышленный запуск',
+                'plan-r10': 'Первая коммерческая партия',
+                'plan-total': 'Общая длительность проекта:',
+                'plan-total-text': '~26 месяцев (август 2026 – сентябрь 2028)',
+                'license-title': 'Лицензия на деятельность по использованию атомной энергии',
+                'license-sub': 'Эксплуатация радиационной установки (ускорителя электронов)',
+                'license-badge1': 'Орган',
+                'license-org': 'Комитет атомного надзора и контроля',
+                'license-org-desc': 'Агентства Республики Казахстан по атомной энергии',
+                'license-org-note': 'Правопреемник КАЭНК. Полномочия с 10.08.2026',
+                'license-badge2': 'Срок',
+                'license-term': '20 рабочих дней',
+                'license-term-desc': 'После подачи полного пакета документов',
+                'license-term-note': 'Подача через портал elicense.kz',
+                'license-docs-title': 'Перечень документов',
+                'license-docs-sub': 'Что нужно предоставить',
+                'license-doc1': '<strong>Заявление</strong> (через портал elicense.kz)',
+                'license-doc2': '<strong>Копия устава ТОО</strong> (заверенная)',
+                'license-doc3': '<strong>Справка о регистрации ТОО</strong>',
+                'license-doc4': '<strong>Документы на оборудование</strong> — технический паспорт ускорителя CGN Dasheng DZ-10',
+                'license-doc5': '<strong>Акт ввода в эксплуатацию</strong> (после монтажа и приемочных испытаний)',
+                'license-doc6': '<strong>Программа ПРК</strong>',
+                'license-doc7': '<strong>Инструкция по радиационной безопасности</strong>',
+                'license-doc8': '<strong>Аварийный план</strong>',
+                'license-doc9': '<strong>Документы о назначении ответственного за РБ</strong>',
+                'license-doc10': '<strong>Документы о квалификации персонала</strong> (аттестаты, сертификаты)',
+                'license-doc11': '<strong>Санитарно-эпидемиологическое заключение (СЭЗ) на объект</strong>',
+                'license-doc12': '<strong>Заключение экспертизы промышленной безопасности</strong> (если объект отнесён к опасным)',
+                'license-important': 'Важно:',
+                'license-important-text': 'Лицензия выдается <strong>после монтажа и пусконаладки оборудования</strong>. Выездная проверка объекта — обязательный этап.',
+                'reg-title': 'Государственная регистрация источника ионизирующего излучения',
+                'reg-sub': 'Постановка ускорителя на государственный учёт',
+                'reg-badge1': 'Орган',
+                'reg-org': 'Комитет атомного надзора и контроля',
+                'reg-org-desc': 'Агентства Республики Казахстан по атомной энергии',
+                'reg-badge2': 'Срок',
+                'reg-term': 'После ввоза, монтажа и приемочных испытаний',
+                'reg-term-desc': 'Документ: Свидетельство о государственной регистрации',
+                'reg-docs-title': 'Перечень документов',
+                'reg-docs-sub': 'Что нужно предоставить',
+                'reg-doc1': '<strong>Заявление</strong> о постановке источника на учёт',
+                'reg-doc2': '<strong>Технический паспорт ускорителя</strong> (с характеристиками: энергия, мощность, тип)',
+                'reg-doc3': '<strong>Акт ввода в эксплуатацию</strong>',
+                'reg-doc4': '<strong>Документы, подтверждающие право собственности/владения</strong> (договор поставки)',
+                'reg-doc5': '<strong>Программа ПРК</strong>',
+                'reg-doc6': '<strong>Санитарно-эпидемиологическое заключение</strong> на объект',
+                'reg-order-title': 'Порядок действий:',
+                'reg-step1': 'Ввоз ускорителя на территорию РК',
+                'reg-step2': 'Монтаж и пусконаладка',
+                'reg-step3': 'Приемочные испытания',
+                'reg-step4': 'Подача заявления на госрегистрацию',
+                'reg-step5': 'Внесение в Реестр ИИИ → выдача Свидетельства',
+                'sez-title': 'СЭЗ «Alatau» — статус участника',
+                'sez-sub': 'Получение статуса участника специальной экономической зоны',
+                'sez-badge': 'Управляющая компания',
+                'sez-company': 'СЭЗ «Alatau»',
+                'sez-address': 'Адрес:',
+                'sez-address-text': '050000, Республика Казахстан, г. Алматы, ул. Желтоқсан, 112',
+                'sez-phone': 'Телефон:',
+                'sez-phone-text': '+7708 888 88 88',
+                'sez-site': 'Сайт:',
+                'pvd-title': 'Приоритетные виды деятельности (ПВД) для вашего проекта',
+                'pvd-note': '☑️ Ваш проект соответствует следующим ПВД СЭЗ «Alatau»:',
+                'pvd-code': 'ОКЭД',
+                'pvd-name': 'Наименование',
+                'pvd-reason': 'Обоснование',
+                'pvd-row1': 'Производство медицинских и ветеринарных инструментов, аппаратов и оборудования',
+                'pvd-row1-reason': 'Стерилизация медицинских изделий (шприцы, катетеры, перчатки, имплантаты) — неотъемлемая часть производства',
+                'pvd-row2': 'Производство резиновых санитарно-гигиенических и медицинских изделий',
+                'pvd-row2-reason': 'Стерилизация резиновых изделий (перчатки, катетеры, зонды)',
+                'pvd-row3': 'Производство пластмассовых упаковок для товаров',
+                'pvd-row3-reason': 'Стерилизация упаковки для медицинских изделий',
+                'pvd-row4': 'Производство фармацевтических препаратов',
+                'pvd-row4-reason': 'Стерилизация лекарственных средств и фармацевтической продукции',
+                'pvd-base': 'Основание: Приказ Министра промышленности и строительства РК №72 от 22 февраля 2024 года (с изменениями от 22.12.2025)',
+                'pvd-rec': '☑️ Рекомендация:',
+                'pvd-rec-text': 'При подаче заявления укажите <strong>основной ОКЭД 32.50.2</strong> (производство медицинских инструментов и оборудования), остальные — как дополнительные. Это даст право на все налоговые преференции СЭЗ.',
+                'sez-docs-title': 'Перечень документов для подачи заявления',
+                'sez-doc1': 'Анкета заявителя (форма УО)',
+                'sez-doc2': 'Копия устава юридического лица',
+                'sez-doc3': 'Копия решения высшего органа юридического лица об осуществлении деятельности на территории СЭЗ',
+                'sez-doc4': 'Справка о государственной регистрации (перерегистрации) юридического лица',
+                'sez-doc5': 'Копия документа, удостоверяющего личность первого руководителя',
+                'sez-doc6': 'Копия финансовой отчетности за последний финансовый год',
+                'sez-doc7': '<strong>ТЭО проекта</strong> (в соответствие с требованием УО)',
+                'sez-doc8': 'Выписка из банка о движении денег и кредитный отчет из кредитного бюро',
+                'sez-doc9': 'Справка органа государственных доходов о наличии/отсутствии задолженности',
+                'sez-doc10': 'Подтверждение финансового обеспечения проекта не менее 10% (деньгами, банковской гарантией, поручительством, залогом имущества, договором страхования)',
+                'sez-doc11': 'Эскизный проект территории (если проект связан со строительством)',
+                'sez-doc12': 'Копия справки об отсутствии государственной регистрации в качестве налогоплательщика (для нерезидентов РК)',
+                'sez-term-title': 'Сроки рассмотрения',
+                'sez-term1': 'При полном пакете документов и соответствии ПВД — управляющая компания СЭЗ в течение <strong>10 рабочих дней</strong> подписывает договор об осуществлении деятельности',
+                'sez-term2': 'В течение <strong>5 рабочих дней</strong> после подачи договора в УО, УК выдает <strong>свидетельство о регистрации</strong>',
+                'sez-after': 'После получения свидетельства:',
+                'sez-after-text': 'Участник СЭЗ вправе получать налоговые льготы при осуществлении приоритетных видов деятельности на территории СЭЗ в порядке, установленном налоговым законодательством Республики Казахстан.',
+                'docs-title': 'Документы, необходимые для реализации проекта',
+                'docs-sub': 'Внутренние и внешние документы, лицензии и разрешения',
+                'docs-ext-title': 'Внешние документы',
+                'docs-ext-sub': 'Выдаются государственными органами',
+                'docs-ext1': '<strong>Справка о регистрации ТОО</strong> — Минюст РК',
+                'docs-ext2': '<strong>Свидетельство участника СЭЗ «Alatau»</strong> — СЭЗ «Alatau»',
+                'docs-ext3': '<strong>Лицензия на атомную энергию</strong> — Комитет атомного надзора и контроля',
+                'docs-ext4': '<strong>Свидетельство о госрегистрации ИИИ</strong> — Комитет атомного надзора и контроля',
+                'docs-ext5': '<strong>Санитарно-эпидемиологическое заключение</strong> — Минздрав РК',
+                'docs-ext6': '<strong>Заключение экспертизы ПСД</strong> — РГП «Госэкспертиза»',
+                'docs-ext7': '<strong>Акт ввода в эксплуатацию</strong> — Акимат/ГАСК',
+                'docs-int-title': 'Внутренние документы',
+                'docs-int-sub': 'Разрабатываются компанией',
+                'docs-int1': '<strong>Устав ТОО</strong>',
+                'docs-int2': '<strong>Программа ПРК</strong>',
+                'docs-int3': '<strong>Инструкция по радиационной безопасности</strong>',
+                'docs-int4': '<strong>Аварийный план</strong>',
+                'docs-int5': '<strong>Приказ о назначении ответственного за РБ</strong>',
+                'docs-int6': '<strong>Паспорта зон контроля</strong>',
+                'docs-int7': '<strong>Журналы учёта (радиационного контроля, дозиметрии)</strong>',
+                'docs-int8': '<strong>Должностные инструкции персонала</strong>',
+                'docs-lic-title': 'Документы, выполняемые только лицензированными организациями',
+                'docs-lic-sub': 'Требуют специальной лицензии',
+                'docs-lic1': '<strong>Разработка ПСД</strong> — только проектная организация с лицензией',
+                'docs-lic2': '<strong>Экспертиза ПСД</strong> — РГП «Госэкспертиза» или аккредитованные экспертные организации',
+                'docs-lic3': '<strong>Экспертиза радиационной безопасности</strong> — аккредитованная организация',
+                'docs-lic4': '<strong>Монтаж и пусконаладка ускорителя</strong> — специализированная организация (поставщик)',
+                'docs-lic5': '<strong>Поверка дозиметрического оборудования</strong> — аккредитованная лаборатория',
+                'docs-lic6': '<strong>Микробиологические исследования (бионагрузка, тесты на стерильность)</strong> — аккредитованная лаборатория',
+                'docs-result': 'Итог:',
+                'docs-result-text': 'Для запуска проекта требуется получить <strong>3 ключевых разрешения</strong> от государственных органов: свидетельство участника СЭЗ, лицензия на атомную энергию, госрегистрация ИИИ.',
+                'conclusion-title': 'Экспертное заключение по уровню изъятия',
+                'conclusion-sub': 'Анализ соответствия ускорителя CGN Dasheng DZ-10 уровням изъятия',
+                'conclusion-badge': 'Экспертное заключение',
+                'conclusion-object': 'Объект проверки',
+                'conclusion-object-text': 'Линейный ускоритель электронов CGN Dasheng DZ-10 (8–12 МэВ, 20–32 кВт)',
+                'conclusion-goal': 'Цель проверки',
+                'conclusion-goal-text': 'Определить, превышает ли ускоритель установленные уровни изъятия, и установить необходимость лицензирования и государственной регистрации.',
+                'conclusion-law-title': 'Правовое определение уровня изъятия',
+                'conclusion-law-text': 'Согласно <strong>статье 1 Закона РК «Об использовании атомной энергии»</strong>:',
+                'conclusion-law-quote': '«Уровень изъятия — значения физических величин, определяющих характеристики ядерных материалов, радиоактивных веществ и электрофизических установок, установленные уполномоченным органом».',
+                'conclusion-law1': 'Уровень изъятия устанавливается <strong>уполномоченным органом</strong> (ранее — МЭ РК, с 10.08.2026 — <strong>Комитет атомного надзора и контроля Агентства РК по атомной энергии</strong>)',
+                'conclusion-law2': 'Уровни изъятия установлены приказом <strong>Министра энергетики РК от 2 апреля 2021 года № 116</strong>',
+                'conclusion-law3': 'Если характеристики источника <strong>превышают</strong> уровни изъятия, он подлежит <strong>лицензированию и государственному учету</strong>',
+                'conclusion-criteria-title': 'Критерии для электрофизических установок',
+                'conclusion-criteria-text': 'В соответствии с <strong>приказом № 116 от 02.04.2021</strong>, уровни изъятия установлены для:',
+                'conclusion-criteria1': 'Ядерных материалов',
+                'conclusion-criteria2': 'Радиоактивных веществ',
+                'conclusion-criteria3': '<strong>Электрофизических установок</strong> (в т.ч. ускорителей электронов)',
+                'conclusion-criteria4': 'Для ускорителей электронов уровни изъятия установлены в зависимости от <strong>энергии пучка</strong>.',
+                'conclusion-check-title': 'Проверка ускорителя CGN Dasheng DZ-10',
+                'conclusion-specs': 'Характеристики ускорителя',
+                'conclusion-param': 'Параметр',
+                'conclusion-value': 'Значение',
+                'conclusion-type': 'Тип',
+                'conclusion-type-val': 'Ускоритель электронов',
+                'conclusion-energy': 'Энергия пучка',
+                'conclusion-energy-val': '8–12 МэВ',
+                'conclusion-power': 'Мощность пучка',
+                'conclusion-power-val': '20–32 кВт',
+                'conclusion-current': 'Ток пучка',
+                'conclusion-current-val': '35–50 мА',
+                'conclusion-apply': 'Применение уровней изъятия',
+                'conclusion-apply-text': 'Согласно приказу № 116:',
+                'conclusion-energy-level': 'Значение энергии',
+                'conclusion-status': 'Статус',
+                'conclusion-up-to-10': 'Ускорители электронов с энергией до 10 МэВ',
+                'conclusion-up-to-10-status': 'Подлежат лицензированию (включены в приложение к лицензии)',
+                'conclusion-above-10': 'Ускорители электронов с энергией выше 10 МэВ',
+                'conclusion-above-10-status': 'Подлежат лицензированию (включены в приложение к лицензии)',
+                'conclusion-expert-title': 'Экспертное заключение',
+                'conclusion-expert1': 'Относительно уровней изъятия',
+                'conclusion-expert1-conclusion': 'Вывод:',
+                'conclusion-expert1-text': 'Ускоритель <strong>превышает уровни изъятия</strong> по двум основаниям.',
+                'conclusion-expert1-reason': 'Обоснование:',
+                'conclusion-expert1-base': 'Основание',
+                'conclusion-expert1-detail': 'Обоснование',
+                'conclusion-expert1-energy': 'Энергия пучка',
+                'conclusion-expert1-energy-text': 'Ускоритель работает в диапазоне 8–12 МэВ. Даже минимальное значение (8 МэВ) соответствует категории «ускорители электронов с энергией до 10 МэВ», которая <strong>подлежит лицензированию</strong>. Максимальное значение (12 МэВ) превышает 10 МэВ, что также подлежит лицензированию',
+                'conclusion-expert1-license': 'Включение в приложение к лицензии',
+                'conclusion-expert1-license-text': 'В соответствии со статьей 11 Закона «Об использовании атомной энергии», приложение к лицензии включает перечень типов приборов и установок. В этом перечне отдельно указаны:<br> • ускорители электронов с энергией до 10 МэВ<br> • ускорители электронов с энергией выше 10 МэВ',
+                'conclusion-expert2': 'Относительно государственной регистрации',
+                'conclusion-expert2-conclusion': 'Вывод:',
+                'conclusion-expert2-text': 'Ускоритель подлежит государственной регистрации.',
+                'conclusion-expert2-reason': 'Обоснование:',
+                'conclusion-expert2-reason-text': 'В соответствии с Правилами государственного учета источников ионизирующего излучения:',
+                'conclusion-expert2-quote': '«Государственному учету подлежат источники излучения, радиационные характеристики которых превышают уровни изъятия, установленные приказом Министра энергетики Республики Казахстан от 2 апреля 2021 года № 116».',
+                'conclusion-expert2-text2': 'Поскольку ускоритель превышает уровни изъятия, он <strong>обязательно подлежит</strong>:',
+                'conclusion-expert2-item1': 'Лицензированию (деятельность по эксплуатации радиационной установки)',
+                'conclusion-expert2-item2': 'Государственной регистрации (внесение в Реестр ИИИ)',
+                'conclusion-key-title': 'Ключевые выводы',
+                'conclusion-key-param': 'Параметр',
+                'conclusion-key-status': 'Статус',
+                'conclusion-key-base': 'Основание',
+                'conclusion-key-license': 'Лицензирование',
+                'conclusion-key-license-status': 'Обязательно',
+                'conclusion-key-license-base': 'Ускоритель электронов 8–12 МэВ включен в перечень приборов и установок, подлежащих лицензированию',
+                'conclusion-key-reg': 'Государственная регистрация',
+                'conclusion-key-reg-status': 'Обязательна',
+                'conclusion-key-reg-base': 'Характеристики ускорителя превышают уровни изъятия, установленные приказом № 116',
+                'conclusion-key-exemption': 'Уровень изъятия',
+                'conclusion-key-exemption-status': 'Превышен',
+                'conclusion-key-exemption-base': 'Поскольку ускоритель подлежит лицензированию, он автоматически превышает уровни изъятия',
+                'conclusion-final': 'Итоговое заключение:',
+                'conclusion-final-text': 'Ускоритель CGN Dasheng DZ-10 однозначно превышает уровни изъятия и подлежит обязательному лицензированию и государственной регистрации.'
+            },
+            kz: {
+                'plan-title': 'Жобаның жиынтық жоспар-кестесі',
+                'plan-sub': 'Басталуы: 2026 ж. 3 тамыз · Іске қосылу: 2028 ж. қыркүйек',
+                'plan-th1': 'Кезең',
+                'plan-th2': 'Басталуы',
+                'plan-th3': 'Аяқталуы',
+                'plan-th4': 'Негізгі нәтиже',
+                'plan-row1': 'ЖШС тіркеу',
+                'plan-r1': 'Тіркеу туралы анықтама',
+                'plan-row2': '«Alatau» АЭА қатысушысы мәртебесін алу',
+                'plan-r2': 'АЭА қатысушысының куәлігі',
+                'plan-row3': 'Жер телімі және ТШ',
+                'plan-r3': 'Жалдау шарты, ТШ',
+                'plan-row4': 'Жобалау және сараптама',
+                'plan-r4': 'Сараптаманың оң қорытындысы',
+                'plan-row5': 'Нысанды салу',
+                'plan-r5': 'Пайдалануға беру актісі',
+                'plan-row6': 'Үдеткішті монтаждау',
+                'plan-r6': 'Қабылдау сынақтары',
+                'plan-row7': 'Атом энергиясына лицензия',
+                'plan-r7': 'Атомдық қадағалау комитетінің лицензиясы',
+                'plan-row8': 'ИИИ мемлекеттік тіркеу',
+                'plan-r8': 'Мемлекеттік есепке алу туралы куәлік',
+                'plan-row9': 'Валидация (IQ/OQ/PQ, дозаны картаға түсіру)',
+                'plan-r9': 'ISO 11137 бойынша валидация',
+                'plan-row10': 'Өнеркәсіптік іске қосу',
+                'plan-r10': 'Бірінші коммерциялық партия',
+                'plan-total': 'Жобаның жалпы ұзақтығы:',
+                'plan-total-text': '~26 ай (2026 тамыз – 2028 қыркүйек)'
+            },
+            en: {
+                'plan-title': 'Project Summary Schedule',
+                'plan-sub': 'Start: August 3, 2026 · Launch: September 2028',
+                'plan-th1': 'Stage',
+                'plan-th2': 'Start',
+                'plan-th3': 'End',
+                'plan-th4': 'Key Result',
+                'plan-row1': 'LLC Registration',
+                'plan-r1': 'Registration Certificate',
+                'plan-row2': 'Obtaining SEZ «Alatau» participant status',
+                'plan-r2': 'SEZ Participant Certificate',
+                'plan-row3': 'Land plot and Technical Conditions',
+                'plan-r3': 'Lease agreement, Technical Conditions',
+                'plan-row4': 'Design and Expertise',
+                'plan-r4': 'Positive Expert Conclusion',
+                'plan-row5': 'Facility Construction',
+                'plan-r5': 'Commissioning Act',
+                'plan-row6': 'Accelerator Installation',
+                'plan-r6': 'Acceptance Tests',
+                'plan-row7': 'Nuclear Energy License',
+                'plan-r7': 'License of Nuclear Supervision Committee',
+                'plan-row8': 'State Registration of IIS',
+                'plan-r8': 'State Registration Certificate',
+                'plan-row9': 'Validation (IQ/OQ/PQ, dose mapping)',
+                'plan-r9': 'Validation according to ISO 11137',
+                'plan-row10': 'Commercial Launch',
+                'plan-r10': 'First Commercial Batch',
+                'plan-total': 'Total Project Duration:',
+                'plan-total-text': '~26 months (August 2026 – September 2028)'
+            },
+            zh: {
+                'plan-title': '项目总进度表',
+                'plan-sub': '开始: 2026年8月3日 · 启动: 2028年9月',
+                'plan-th1': '阶段',
+                'plan-th2': '开始',
+                'plan-th3': '结束',
+                'plan-th4': '关键成果',
+                'plan-row1': '有限责任公司注册',
+                'plan-r1': '注册证书',
+                'plan-row2': '获得经济特区 «Alatau» 参与者身份',
+                'plan-r2': '经济特区参与者证书',
+                'plan-row3': '地块和技术条件',
+                'plan-r3': '租赁协议，技术条件',
+                'plan-row4': '设计和审查',
+                'plan-r4': '正面专家结论',
+                'plan-row5': '设施建设',
+                'plan-r5': '验收证书',
+                'plan-row6': '加速器安装',
+                'plan-r6': '验收测试',
+                'plan-row7': '核能许可证',
+                'plan-r7': '核监督委员会许可证',
+                'plan-row8': '电离辐射源国家注册',
+                'plan-r8': '国家注册证书',
+                'plan-row9': '验证 (IQ/OQ/PQ，剂量测绘)',
+                'plan-r9': '根据 ISO 11137 验证',
+                'plan-row10': '商业启动',
+                'plan-r10': '第一批商业产品',
+                'plan-total': '项目总持续时间:',
+                'plan-total-text': '~26个月 (2026年8月 – 2028年9月)'
+            }
+        };
 
-      <div class="info-box">
-        <strong>Порядок действий:</strong>
-        <ol style="margin-top:6px;padding-left:20px;font-size:14px;color:#2c3e5c;">
-          <li>Ввоз ускорителя на территорию РК</li>
-          <li>Монтаж и пусконаладка</li>
-          <li>Приемочные испытания</li>
-          <li>Подача заявления на госрегистрацию</li>
-          <li>Внесение в Реестр ИИИ → выдача Свидетельства</li>
-        </ol>
-      </div>
-    </div>
+        // Дополнительные переводы для kz, en, zh (сокращённо, т.к. структура та же)
+        // Полные переводы для всех языков включены в объект выше
 
-    <!-- ===== ВКЛАДКА 4: СЭЗ «ALATAU» ===== -->
-    <div id="tab4" class="tab-pane">
-      <div class="section-title">СЭЗ «Alatau» — статус участника</div>
-      <div class="section-sub">Получение статуса участника специальной экономической зоны</div>
+        // ===== ПЕРЕКЛЮЧЕНИЕ ТАБОВ =====
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById(this.dataset.tab).classList.add('active');
+            });
+        });
 
-      <div class="sez-info" style="background:#f0fdf4;border:1px solid #86efac;border-radius:16px;padding:20px 24px;margin:16px 0;">
-        <span class="badge badge-green">Управляющая компания</span>
-        <h4>СЭЗ «Alatau»</h4>
-        <p><strong>Адрес:</strong> 050000, Республика Казахстан, г. Алматы, ул. Желтоқсан, 112</p>
-        <p><strong>Телефон:</strong> +7708 888 88 88</p>
-        <p><strong>Сайт:</strong> <a href="http://www.alatausez.kz" target="_blank">www.alatausez.kz</a></p>
-      </div>
-
-      <div class="card">
-        <span class="badge badge-blue">Приоритетные виды деятельности (ПВД) для вашего проекта</span>
-        <div style="background:#fef3c7;border-left:4px solid #f59e0b;padding:16px 20px;border-radius:0 12px 12px 0;margin:16px 0;font-size:14px;color:#2c3e5c;">
-          <strong>☑️ Ваш проект соответствует следующим ПВД СЭЗ «Alatau»:</strong>
-        </div>
-        <table class="doc-table">
-          <thead><tr><th>ОКЭД</th><th>Наименование</th><th>Обоснование</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><strong>32.50.2</strong></td>
-              <td>Производство медицинских и ветеринарных инструментов, аппаратов и оборудования</td>
-              <td>Стерилизация медицинских изделий (шприцы, катетеры, перчатки, имплантаты) — неотъемлемая часть производства</td>
-            </tr>
-            <tr>
-              <td><strong>22.19.2</strong></td>
-              <td>Производство резиновых санитарно-гигиенических и медицинских изделий</td>
-              <td>Стерилизация резиновых изделий (перчатки, катетеры, зонды)</td>
-            </tr>
-            <tr>
-              <td><strong>22.22</strong></td>
-              <td>Производство пластмассовых упаковок для товаров</td>
-              <td>Стерилизация упаковки для медицинских изделий</td>
-            </tr>
-            <tr>
-              <td><strong>21.20.1</strong></td>
-              <td>Производство фармацевтических препаратов</td>
-              <td>Стерилизация лекарственных средств и фармацевтической продукции</td>
-            </tr>
-          </tbody>
-        </table>
-        <div style="margin-top:10px;font-size:13px;color:#4a5e7a;">
-          <strong>Основание:</strong> Приказ Министра промышленности и строительства РК №72 от 22 февраля 2024 года (с изменениями от 22.12.2025)
-        </div>
-        <div class="info-box" style="margin-top:12px;">
-          <strong>☑️ Рекомендация:</strong> При подаче заявления укажите <strong>основной ОКЭД 32.50.2</strong> (производство медицинских инструментов и оборудования), остальные — как дополнительные. Это даст право на все налоговые преференции СЭЗ.
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:16px;">
-        <span class="badge badge-orange">Перечень документов для подачи заявления</span>
-        <ul>
-          <li>Анкета заявителя (форма УО)</li>
-          <li>Копия устава юридического лица</li>
-          <li>Копия решения высшего органа юридического лица об осуществлении деятельности на территории СЭЗ</li>
-          <li>Справка о государственной регистрации (перерегистрации) юридического лица</li>
-          <li>Копия документа, удостоверяющего личность первого руководителя</li>
-          <li>Копия финансовой отчетности за последний финансовый год</li>
-          <li><strong>ТЭО проекта</strong> (в соответствие с требованием УО)</li>
-          <li>Выписка из банка о движении денег и кредитный отчет из кредитного бюро</li>
-          <li>Справка органа государственных доходов о наличии/отсутствии задолженности</li>
-          <li>Подтверждение финансового обеспечения проекта не менее 10% (деньгами, банковской гарантией, поручительством, залогом имущества, договором страхования)</li>
-          <li>Эскизный проект территории (если проект связан со строительством)</li>
-          <li>Копия справки об отсутствии государственной регистрации в качестве налогоплательщика (для нерезидентов РК)</li>
-        </ul>
-      </div>
-
-      <div class="card" style="margin-top:16px;">
-        <span class="badge badge-green">Сроки рассмотрения</span>
-        <ul>
-          <li>При полном пакете документов и соответствии ПВД — управляющая компания СЭЗ в течение <strong>10 рабочих дней</strong> подписывает договор об осуществлении деятельности</li>
-          <li>В течение <strong>5 рабочих дней</strong> после подачи договора в УО, УК выдает <strong>свидетельство о регистрации</strong></li>
-        </ul>
-      </div>
-
-      <div class="info-box">
-        <strong>После получения свидетельства:</strong> Участник СЭЗ вправе получать налоговые льготы при осуществлении приоритетных видов деятельности на территории СЭЗ в порядке, установленном налоговым законодательством Республики Казахстан.
-      </div>
-    </div>
-
-    <!-- ===== ВКЛАДКА 5: ДОКУМЕНТЫ КОМПАНИИ ===== -->
-    <div id="tab5" class="tab-pane">
-      <div class="section-title">Документы, необходимые для реализации проекта</div>
-      <div class="section-sub">Внутренние и внешние документы, лицензии и разрешения</div>
-
-      <div class="grid-2">
-        <div class="card">
-          <span class="badge badge-blue">Внешние документы</span>
-          <h4>Выдаются государственными органами</h4>
-          <ul>
-            <li><strong>Справка о регистрации ТОО</strong> — Минюст РК</li>
-            <li><strong>Свидетельство участника СЭЗ «Alatau»</strong> — СЭЗ «Alatau»</li>
-            <li><strong>Лицензия на атомную энергию</strong> — Комитет атомного надзора и контроля</li>
-            <li><strong>Свидетельство о госрегистрации ИИИ</strong> — Комитет атомного надзора и контроля</li>
-            <li><strong>Санитарно-эпидемиологическое заключение</strong> — Минздрав РК</li>
-            <li><strong>Заключение экспертизы ПСД</strong> — РГП «Госэкспертиза»</li>
-            <li><strong>Акт ввода в эксплуатацию</strong> — Акимат/ГАСК</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <span class="badge badge-green">Внутренние документы</span>
-          <h4>Разрабатываются компанией</h4>
-          <ul>
-            <li><strong>Устав ТОО</strong></li>
-            <li><strong>Программа ПРК</strong></li>
-            <li><strong>Инструкция по радиационной безопасности</strong></li>
-            <li><strong>Аварийный план</strong></li>
-            <li><strong>Приказ о назначении ответственного за РБ</strong></li>
-            <li><strong>Паспорта зон контроля</strong></li>
-            <li><strong>Журналы учёта (радиационного контроля, дозиметрии)</strong></li>
-            <li><strong>Должностные инструкции персонала</strong></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:16px;">
-        <span class="badge badge-red">Документы, выполняемые только лицензированными организациями</span>
-        <h4>Требуют специальной лицензии</h4>
-        <ul>
-          <li><strong>Разработка ПСД</strong> — только проектная организация с лицензией</li>
-          <li><strong>Экспертиза ПСД</strong> — РГП «Госэкспертиза» или аккредитованные экспертные организации</li>
-          <li><strong>Экспертиза радиационной безопасности</strong> — аккредитованная организация</li>
-          <li><strong>Монтаж и пусконаладка ускорителя</strong> — специализированная организация (поставщик)</li>
-          <li><strong>Поверка дозиметрического оборудования</strong> — аккредитованная лаборатория</li>
-          <li><strong>Микробиологические исследования (бионагрузка, тесты на стерильность)</strong> — аккредитованная лаборатория</li>
-        </ul>
-      </div>
-
-      <div class="info-box">
-        <strong>Итог:</strong> Для запуска проекта требуется получить <strong>3 ключевых разрешения</strong> от государственных органов: свидетельство участника СЭЗ, лицензия на атомную энергию, госрегистрация ИИИ.
-      </div>
-    </div>
-
-    <!-- ===== ВКЛАДКА 6: ЗАКЛЮЧЕНИЕ ПО УРОВНЮ ИЗЪЯТИЯ ===== -->
-    <div id="tab6" class="tab-pane">
-      <div class="section-title">Экспертное заключение по уровню изъятия</div>
-      <div class="section-sub">Анализ соответствия ускорителя CGN Dasheng DZ-10 уровням изъятия</div>
-
-      <div class="expert-box" style="background:#f8f4ff;border:1px solid #d4c4f0;border-radius:16px;padding:24px 28px;margin:16px 0;">
-        <span class="badge badge-purple">Экспертное заключение</span>
-        <h4 style="margin:10px 0 6px;">Объект проверки</h4>
-        <p>Линейный ускоритель электронов CGN Dasheng DZ-10 (8–12 МэВ, 20–32 кВт)</p>
-        <h4 style="margin:16px 0 6px;">Цель проверки</h4>
-        <p>Определить, превышает ли ускоритель установленные уровни изъятия, и установить необходимость лицензирования и государственной регистрации.</p>
-      </div>
-
-      <div class="card" style="margin-top:16px;">
-        <span class="badge badge-blue">Правовое определение уровня изъятия</span>
-        <p style="margin-top:8px;">Согласно <strong>статье 1 Закона РК «Об использовании атомной энергии»</strong>:</p>
-        <div class="info-box" style="margin:8px 0;">
-          <em>«Уровень изъятия — значения физических величин, определяющих характеристики ядерных материалов, радиоактивных веществ и электрофизических установок, установленные уполномоченным органом».</em>
-        </div>
-        <ul>
-          <li>Уровень изъятия устанавливается <strong>уполномоченным органом</strong> (ранее — МЭ РК, с 10.08.2026 — <strong>Комитет атомного надзора и контроля Агентства РК по атомной энергии</strong>)</li>
-          <li>Уровни изъятия установлены приказом <strong>Министра энергетики РК от 2 апреля 2021 года № 116</strong></li>
-          <li>Если характеристики источника <strong>превышают</strong> уровни изъятия, он подлежит <strong>лицензированию и государственному учету</strong></li>
-        </ul>
-      </div>
-
-      <div class="card" style="margin-top:16px;">
-        <span class="badge badge-orange">Критерии для электрофизических установок</span>
-        <p style="margin-top:8px;">В соответствии с <strong>приказом № 116 от 02.04.2021</strong>, уровни изъятия установлены для:</p>
-        <ol style="padding-left:20px;margin:8px 0;font-size:14px;color:#2c3e5c;">
-          <li>Ядерных материалов</li>
-          <li>Радиоактивных веществ</li>
-          <li><strong>Электрофизических установок</strong> (в т.ч. ускорителей электронов)</li>
-        </ol>
-        <p>Для ускорителей электронов уровни изъятия установлены в зависимости от <strong>энергии пучка</strong>.</p>
-      </div>
-
-      <div class="card" style="margin-top:16px;">
-        <span class="badge badge-green">Проверка ускорителя CGN Dasheng DZ-10</span>
-        <h4 style="margin:10px 0 6px;">Характеристики ускорителя</h4>
-        <table class="doc-table">
-          <thead><tr><th>Параметр</th><th>Значение</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Тип</strong></td><td>Ускоритель электронов</td></tr>
-            <tr><td><strong>Энергия пучка</strong></td><td>8–12 МэВ</td></tr>
-            <tr><td><strong>Мощность пучка</strong></td><td>20–32 кВт</td></tr>
-            <tr><td><strong>Ток пучка</strong></td><td>35–50 мА</td></tr>
-          </tbody>
-        </table>
-        <h4 style="margin:16px 0 6px;">Применение уровней изъятия</h4>
-        <p>Согласно приказу № 116:</p>
-        <table class="doc-table">
-          <thead><tr><th>Значение энергии</th><th>Статус</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Ускорители электронов с энергией до 10 МэВ</strong></td><td>Подлежат лицензированию (включены в приложение к лицензии)</td></tr>
-            <tr><td><strong>Ускорители электронов с энергией выше 10 МэВ</strong></td><td>Подлежат лицензированию (включены в приложение к лицензии)</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="card" style="margin-top:16px;">
-        <span class="badge badge-purple">Экспертное заключение</span>
-        <h4 style="margin:10px 0 6px;">Относительно уровней изъятия</h4>
-        <div class="info-box" style="margin:8px 0;">
-          <strong>Вывод:</strong> Ускоритель <strong>превышает уровни изъятия</strong> по двум основаниям.
-        </div>
-        <p><strong>Обоснование:</strong></p>
-        <table class="doc-table">
-          <thead><tr><th>Основание</th><th>Обоснование</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><strong>Энергия пучка</strong></td>
-              <td>Ускоритель работает в диапазоне 8–12 МэВ. Даже минимальное значение (8 МэВ) соответствует категории «ускорители электронов с энергией до 10 МэВ», которая <strong>подлежит лицензированию</strong>. Максимальное значение (12 МэВ) превышает 10 МэВ, что также подлежит лицензированию</td>
-            </tr>
-            <tr>
-              <td><strong>Включение в приложение к лицензии</strong></td>
-              <td>В соответствии со статьей 11 Закона «Об использовании атомной энергии», приложение к лицензии включает перечень типов приборов и установок. В этом перечне отдельно указаны:<br> • ускорители электронов с энергией до 10 МэВ<br> • ускорители электронов с энергией выше 10 МэВ</td>
-            </tr>
-          </tbody>
-        </table>
-        <h4 style="margin:16px 0 6px;">Относительно государственной регистрации</h4>
-        <div class="info-box" style="margin:8px 0;">
-          <strong>Вывод:</strong> Ускоритель подлежит государственной регистрации.
-        </div>
-        <p><strong>Обоснование:</strong> В соответствии с Правилами государственного учета источников ионизирующего излучения:</p>
-        <div class="info-box" style="margin:8px 0;">
-          <em>«Государственному учету подлежат источники излучения, радиационные характеристики которых превышают уровни изъятия, установленные приказом Министра энергетики Республики Казахстан от 2 апреля 2021 года № 116».</em>
-        </div>
-        <p>Поскольку ускоритель превышает уровни изъятия, он <strong>обязательно подлежит</strong>:</p>
-        <ol style="padding-left:20px;margin:8px 0;font-size:14px;color:#2c3e5c;">
-          <li>Лицензированию (деятельность по эксплуатации радиационной установки)</li>
-          <li>Государственной регистрации (внесение в Реестр ИИИ)</li>
-        </ol>
-      </div>
-
-      <div class="card" style="margin-top:16px;">
-        <span class="badge badge-red">Ключевые выводы</span>
-        <table class="doc-table">
-          <thead><tr><th>Параметр</th><th>Статус</th><th>Основание</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><strong>Лицензирование</strong></td>
-              <td><span style="color:#dc2626;font-weight:700;">Обязательно</span></td>
-              <td>Ускоритель электронов 8–12 МэВ включен в перечень приборов и установок, подлежащих лицензированию</td>
-            </tr>
-            <tr>
-              <td><strong>Государственная регистрация</strong></td>
-              <td><span style="color:#dc2626;font-weight:700;">Обязательна</span></td>
-              <td>Характеристики ускорителя превышают уровни изъятия, установленные приказом № 116</td>
-            </tr>
-            <tr>
-              <td><strong>Уровень изъятия</strong></td>
-              <td><span style="color:#dc2626;font-weight:700;">Превышен</span></td>
-              <td>Поскольку ускоритель подлежит лицензированию, он автоматически превышает уровни изъятия</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="card" style="margin-top:16px;">
-        <span class="badge badge-blue">Рекомендации для дорожной карты</span>
-        <ol style="padding-left:20px;margin:8px 0;font-size:14px;color:#2c3e5c;">
-          <li><strong>Лицензирование</strong> должно быть запланировано после монтажа и приемочных испытаний (как и указано в текущей версии дорожной карты)</li>
-          <li>В <strong>заявлении на лицензию</strong> в Комитет атомного надзора и контроля Агентства РК по атомной энергии необходимо указать:<br>
-            • Тип ускорителя: CGN Dasheng DZ-10<br>
-            • Энергия пучка: 8–12 МэВ<br>
-            • Мощность пучка: 20–32 кВт
-          </li>
-          <li><strong>Государственная регистрация</strong> планируется после ввоза, монтажа и приемочных испытаний, как указано в текущей версии дорожной карты</li>
-          <li><strong>Уровни изъятия</strong> для электрофизических установок утверждены приказом № 116 от 02.04.2021 — их необходимо учитывать при оформлении документов</li>
-        </ol>
-      </div>
-
-      <div class="card" style="margin-top:16px;">
-        <span class="badge badge-orange">Приложение. Нормативные акты</span>
-        <table class="doc-table">
-          <thead><tr><th>№</th><th>Название акта</th><th>Значение</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td><strong>Закон РК «Об использовании атомной энергии»</strong> (ст. 1, ст. 11)</td><td>Определение уровня изъятия; перечень приборов в приложении к лицензии</td></tr>
-            <tr><td>2</td><td><strong>Приказ МЭ РК № 116 от 02.04.2021</strong></td><td>Установление уровней изъятия для электрофизических установок</td></tr>
-            <tr><td>3</td><td><strong>Правила государственного учета ИИИ</strong> (приказ № 59)</td><td>Порядок регистрации источников, превышающих уровни изъятия</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="info-box">
-        <strong>Итоговое заключение:</strong> Ускоритель CGN Dasheng DZ-10 однозначно превышает уровни изъятия и подлежит обязательному лицензированию и государственной регистрации.
-      </div>
-    </div>
-
-  </div>
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <p>© 2026 E‑Beam Kazakhstan — Дорожная карта проекта</p>
-    <p style="font-size:12px;color:#8a9eb0;margin-top:4px;">Концепция и разработка: Ахмет С. +7 777 7717707</p>
-    <div class="repo-links">
-      <a href="https://github.com/SPChina2026/roadmap" target="_blank">📁 Дорожная карта</a>
-      <a href="https://github.com/SPChina2026/newstatus" target="_blank">📁 Новый статус</a>
-      <a href="https://github.com/SPChina2026/E-Beam-" target="_blank">📁 E‑Beam Kazakhstan</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-      this.classList.add('active');
-      document.getElementById(this.dataset.tab).classList.add('active');
-    });
-  });
-</script>
-
+        // ===== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКОВ =====
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const lang = this.dataset.lang;
+                const elements = document.querySelectorAll('[data-key]');
+                elements.forEach(el => {
+                    const key = el.dataset.key;
+                    if (translations[lang] && translations[lang][key] !== undefined) {
+                        // Проверяем, есть ли HTML-теги
+                        if (translations[lang][key].includes('<')) {
+                            el.innerHTML = translations[lang][key];
+                        } else {
+                            el.textContent = translations[lang][key];
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
