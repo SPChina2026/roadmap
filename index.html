@@ -169,35 +169,10 @@
       border-top: 1px solid #eef2f6;
       margin-top: 20px;
     }
-
-    .expert-box {
-      background: #f8f4ff;
-      border: 1px solid #d4c4f0;
-      border-radius: 16px;
-      padding: 24px 28px;
-      margin: 16px 0;
-    }
-    .expert-box .badge { background: #e9d5ff; color: #6b21a8; }
-
-    .sez-info {
-      background: #f0fdf4;
-      border: 1px solid #86efac;
-      border-radius: 16px;
-      padding: 20px 24px;
-      margin: 16px 0;
-    }
-    .sez-info .badge { background: #d1fae5; color: #065f46; }
-
-    .pvd-highlight {
-      background: #fef3c7;
-      border-left: 4px solid #f59e0b;
-      padding: 16px 20px;
-      border-radius: 0 12px 12px 0;
-      margin: 16px 0;
-      font-size: 14px;
-      color: #2c3e5c;
-    }
-    .pvd-highlight strong { color: #0b2b5c; }
+    .footer a { color: #0077b6; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    .footer .repo-links { margin-top: 8px; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 20px; }
+    .footer .repo-links a { font-size: 13px; }
 
     @media (max-width: 900px) {
       .grid-2, .grid-3 { grid-template-columns: 1fr; }
@@ -350,27 +325,19 @@
       <div class="section-title">СЭЗ «Alatau» — статус участника</div>
       <div class="section-sub">Получение статуса участника специальной экономической зоны</div>
 
-      <!-- Управляющая компания -->
-      <div class="sez-info">
+      <div class="sez-info" style="background:#f0fdf4;border:1px solid #86efac;border-radius:16px;padding:20px 24px;margin:16px 0;">
         <span class="badge badge-green">Управляющая компания</span>
-        <h4>ТОО «Технопарк Алатау»</h4>
-        <p><strong>Генеральный директор:</strong> Мадиев Алмас Ускенбаевич</p>
-        <p><strong>Адрес:</strong> г. Алматы, Медеуский район, мкр. Алатау, ул. Ибрагимова, 9, СЭЗ «Парк инновационных технологий», офисное здание, 4-ый этаж, блок А, офис 404</p>
-        <p><strong>Телефон:</strong> +7 (727) 320-18-21 (вн. 2021)</p>
-        <p><strong>Мобильный (WhatsApp):</strong> +7 (707) 471-11-99</p>
-        <p><strong>E-mail:</strong> info@aitc.kz</p>
+        <h4>СЭЗ «Alatau»</h4>
+        <p><strong>Адрес:</strong> 050000, Республика Казахстан, г. Алматы, ул. Желтоқсан, 112</p>
+        <p><strong>Телефон:</strong> +7708 888 88 88</p>
         <p><strong>Сайт:</strong> <a href="http://www.alatausez.kz" target="_blank">www.alatausez.kz</a></p>
-        <p><strong>График приёма граждан:</strong> вторник, четверг с 10.00 до 11.00</p>
       </div>
 
-      <!-- ПВД -->
       <div class="card">
         <span class="badge badge-blue">Приоритетные виды деятельности (ПВД) для вашего проекта</span>
-        
-        <div class="pvd-highlight">
+        <div style="background:#fef3c7;border-left:4px solid #f59e0b;padding:16px 20px;border-radius:0 12px 12px 0;margin:16px 0;font-size:14px;color:#2c3e5c;">
           <strong>☑️ Ваш проект соответствует следующим ПВД СЭЗ «Alatau»:</strong>
         </div>
-
         <table class="doc-table">
           <thead><tr><th>ОКЭД</th><th>Наименование</th><th>Обоснование</th></tr></thead>
           <tbody>
@@ -396,17 +363,14 @@
             </tr>
           </tbody>
         </table>
-
         <div style="margin-top:10px;font-size:13px;color:#4a5e7a;">
           <strong>Основание:</strong> Приказ Министра промышленности и строительства РК №72 от 22 февраля 2024 года (с изменениями от 22.12.2025)
         </div>
-
         <div class="info-box" style="margin-top:12px;">
           <strong>☑️ Рекомендация:</strong> При подаче заявления укажите <strong>основной ОКЭД 32.50.2</strong> (производство медицинских инструментов и оборудования), остальные — как дополнительные. Это даст право на все налоговые преференции СЭЗ.
         </div>
       </div>
 
-      <!-- Перечень документов -->
       <div class="card" style="margin-top:16px;">
         <span class="badge badge-orange">Перечень документов для подачи заявления</span>
         <ul>
@@ -425,7 +389,6 @@
         </ul>
       </div>
 
-      <!-- Сроки -->
       <div class="card" style="margin-top:16px;">
         <span class="badge badge-green">Сроки рассмотрения</span>
         <ul>
@@ -450,7 +413,7 @@
           <h4>Выдаются государственными органами</h4>
           <ul>
             <li><strong>Справка о регистрации ТОО</strong> — Минюст РК</li>
-            <li><strong>Свидетельство участника СЭЗ «Alatau»</strong> — ТОО «Технопарк Алатау»</li>
+            <li><strong>Свидетельство участника СЭЗ «Alatau»</strong> — СЭЗ «Alatau»</li>
             <li><strong>Лицензия на атомную энергию</strong> — Комитет атомного надзора и контроля</li>
             <li><strong>Свидетельство о госрегистрации ИИИ</strong> — Комитет атомного надзора и контроля</li>
             <li><strong>Санитарно-эпидемиологическое заключение</strong> — Минздрав РК</li>
@@ -498,11 +461,10 @@
       <div class="section-title">Экспертное заключение по уровню изъятия</div>
       <div class="section-sub">Анализ соответствия ускорителя CGN Dasheng DZ-10 уровням изъятия</div>
 
-      <div class="expert-box">
+      <div class="expert-box" style="background:#f8f4ff;border:1px solid #d4c4f0;border-radius:16px;padding:24px 28px;margin:16px 0;">
         <span class="badge badge-purple">Экспертное заключение</span>
         <h4 style="margin:10px 0 6px;">Объект проверки</h4>
         <p>Линейный ускоритель электронов CGN Dasheng DZ-10 (8–12 МэВ, 20–32 кВт)</p>
-
         <h4 style="margin:16px 0 6px;">Цель проверки</h4>
         <p>Определить, превышает ли ускоритель установленные уровни изъятия, и установить необходимость лицензирования и государственной регистрации.</p>
       </div>
@@ -651,6 +613,11 @@
   <div class="container">
     <p>© 2026 E‑Beam Kazakhstan — Дорожная карта проекта</p>
     <p style="font-size:12px;color:#8a9eb0;margin-top:4px;">Концепция и разработка: Ахмет С. +7 777 7717707</p>
+    <div class="repo-links">
+      <a href="https://github.com/SPChina2026/roadmap" target="_blank">📁 Дорожная карта</a>
+      <a href="https://github.com/SPChina2026/newstatus" target="_blank">📁 Новый статус</a>
+      <a href="https://github.com/SPChina2026/E-Beam-" target="_blank">📁 E‑Beam Kazakhstan</a>
+    </div>
   </div>
 </footer>
 
