@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Дорожная карта — E‑Beam Kazakhstan</title>
     <style>
-        /* ===== RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -16,7 +15,6 @@
             background: #f8faff;
             color: #1a2a44;
             line-height: 1.5;
-            transition: background 0.3s;
         }
         .container {
             max-width: 1200px;
@@ -55,62 +53,8 @@
             color: #4a5e7a;
             display: block;
         }
-        .lang-switch {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-        .lang-btn {
-            background: none;
-            border: 1px solid #e6edf6;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            color: #4a5e7a;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .lang-btn:hover {
-            background: #f0f4f9;
-            border-color: #0077b6;
-        }
-        .lang-btn.active {
-            background: #0077b6;
-            color: #fff;
-            border-color: #0077b6;
-        }
 
-        /* ===== TABS ===== */
-        .tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px;
-            margin-top: 8px;
-        }
-        .tab-btn {
-            background: none;
-            border: none;
-            padding: 10px 18px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #4a5e7a;
-            cursor: pointer;
-            border-radius: 8px 8px 0 0;
-            border-bottom: 3px solid transparent;
-            transition: 0.2s;
-        }
-        .tab-btn:hover {
-            color: #0b2b5c;
-            background: #f0f4f9;
-        }
-        .tab-btn.active {
-            color: #0077b6;
-            border-bottom-color: #0077b6;
-            background: #f0f8ff;
-        }
-
-        /* ===== BUTTONS ===== */
+        /* ===== КНОПКА WHATSAPP В ШАПКЕ ===== */
         .btn-whatsapp {
             display: inline-flex;
             align-items: center;
@@ -138,11 +82,66 @@
             fill: white;
             flex-shrink: 0;
         }
+
         .header-actions {
             display: flex;
             align-items: center;
             gap: 12px;
             flex-wrap: wrap;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .lang-btn {
+            background: none;
+            border: 1px solid #e6edf6;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #4a5e7a;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .lang-btn:hover {
+            background: #f0f4f9;
+            border-color: #0077b6;
+        }
+        .lang-btn.active {
+            background: #0077b6;
+            color: #fff;
+            border-color: #0077b6;
+        }
+
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 8px;
+        }
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #4a5e7a;
+            cursor: pointer;
+            border-radius: 8px 8px 0 0;
+            border-bottom: 3px solid transparent;
+            transition: 0.2s;
+        }
+        .tab-btn:hover {
+            color: #0b2b5c;
+            background: #f0f4f9;
+        }
+        .tab-btn.active {
+            color: #0077b6;
+            border-bottom-color: #0077b6;
+            background: #f0f8ff;
         }
 
         /* ===== CONTENT ===== */
@@ -177,16 +176,10 @@
             margin-bottom: 24px;
         }
 
-        /* ===== GRIDS & CARDS ===== */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 24px;
-        }
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
         }
         .card {
             background: #f9fcff;
@@ -228,7 +221,6 @@
             border: none;
         }
 
-        /* ===== BADGES ===== */
         .badge {
             display: inline-block;
             padding: 2px 12px;
@@ -244,7 +236,6 @@
         .badge-purple { background: #e9d5ff; color: #6b21a8; }
         .badge-teal   { background: #ccfbf1; color: #0d9488; }
 
-        /* ===== TABLES ===== */
         .doc-table {
             width: 100%;
             border-collapse: collapse;
@@ -271,7 +262,6 @@
             border: none;
         }
 
-        /* ===== INFO BOX ===== */
         .info-box {
             background: #f2f8fe;
             border-left: 4px solid #0077b6;
@@ -285,7 +275,6 @@
             color: #0b2b5c;
         }
 
-        /* ===== SPECIAL ===== */
         .sez-info {
             background: #f0fdf4;
             border: 1px solid #86efac;
@@ -326,10 +315,8 @@
             text-decoration: underline;
         }
 
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 900px) {
-            .grid-2,
-            .grid-3 {
+            .grid-2 {
                 grid-template-columns: 1fr;
             }
             .header-inner {
@@ -370,10 +357,10 @@
         <div class="container header-inner">
             <div class="logo">
                 E‑Beam <span>Kazakhstan</span>
-                <small data-i18n="subtitle">Дорожная карта проекта</small>
+                <small>Дорожная карта проекта</small>
             </div>
             <div class="header-actions">
-                <!-- ===== КНОПКА WHATSAPP ===== -->
+                <!-- ===== КНОПКА WHATSAPP В ШАПКЕ ===== -->
                 <a href="https://wa.me/77777717707" target="_blank" class="btn-whatsapp">
                     <svg viewBox="0 0 24 24"><path d="M12.032 21.965c-1.821 0-3.585-.476-5.12-1.378l-.366-.216-3.797.995 1.014-3.703-.238-.383a9.958 9.958 0 0 1-1.376-5.164c0-5.512 4.482-9.995 9.994-9.995 2.668 0 5.176 1.04 7.063 2.927a9.939 9.939 0 0 1 2.927 7.063c-.001 5.512-4.484 9.994-9.997 9.994zM12.032 2.617C6.782 2.617 2.56 6.84 2.56 12.09c0 1.892.569 3.737 1.645 5.305l-1.074 3.924 4.019-1.053c1.533.938 3.333 1.436 5.191 1.436 5.25 0 9.473-4.224 9.473-9.473 0-2.53-.985-4.91-2.773-6.698a9.414 9.414 0 0 0-6.698-2.773z"/><path d="M16.707 14.307c-.087-.138-.36-.37-.708-.554-.348-.184-2.061-1.017-2.381-1.134-.319-.117-.551-.174-.783.174-.232.348-.9 1.134-1.103 1.367-.203.233-.406.261-.754.077-.348-.184-1.47-.542-2.8-1.729-1.035-.923-1.733-2.063-1.936-2.411-.203-.348-.022-.536.153-.71.157-.157.348-.393.522-.59.174-.197.232-.328.348-.547.116-.219.058-.41-.029-.574-.087-.164-.783-1.887-1.073-2.584-.283-.679-.571-.587-.783-.598-.203-.011-.436-.014-.668-.014-.232 0-.609.087-.928.435-.319.348-1.219 1.191-1.219 2.904 0 1.713 1.247 3.367 1.421 3.599.174.232 2.454 3.748 5.943 5.255 3.489 1.507 3.489 1.005 4.118.942.629-.063 2.03-.829 2.316-1.631.286-.802.286-1.489.2-1.632z"/></svg>
                     Архитектор сайта
@@ -387,13 +374,13 @@
                 </div>
             </div>
             <div class="tabs">
-                <button class="tab-btn active" data-tab="tab1" data-i18n="tab1">Общий план</button>
-                <button class="tab-btn" data-tab="tab2" data-i18n="tab2">Лицензия</button>
-                <button class="tab-btn" data-tab="tab3" data-i18n="tab3">Госрегистрация ИИИ</button>
-                <button class="tab-btn" data-tab="tab4" data-i18n="tab4">СЭЗ «Alatau»</button>
-                <button class="tab-btn" data-tab="tab5" data-i18n="tab5">Документы</button>
-                <button class="tab-btn" data-tab="tab6" data-i18n="tab6">Стерилизация</button>
-                <button class="tab-btn" data-tab="tab7" data-i18n="tab7">Заключение</button>
+                <button class="tab-btn active" data-tab="tab1">Общий план</button>
+                <button class="tab-btn" data-tab="tab2">Лицензия</button>
+                <button class="tab-btn" data-tab="tab3">Госрегистрация ИИИ</button>
+                <button class="tab-btn" data-tab="tab4">СЭЗ «Alatau»</button>
+                <button class="tab-btn" data-tab="tab5">Документы</button>
+                <button class="tab-btn" data-tab="tab6">Стерилизация</button>
+                <button class="tab-btn" data-tab="tab7">Заключение</button>
             </div>
         </div>
     </header>
@@ -402,343 +389,305 @@
     <main class="container">
         <div class="content">
 
-            <!-- ========== TAB 1 ========== -->
+            <!-- ===== TAB 1 ===== -->
             <div id="tab1" class="tab-pane active">
-                <div class="section-title" data-i18n="t1_title">Сводный план-график проекта</div>
-                <div class="section-sub" data-i18n="t1_sub">Старт: 3 августа 2026 · Запуск: сентябрь 2028</div>
-
+                <div class="section-title">Сводный план-график проекта</div>
+                <div class="section-sub">Старт: 3 августа 2026 · Запуск: сентябрь 2028</div>
                 <table class="doc-table">
-                    <thead>
-                        <tr>
-                            <th data-i18n="t1_th1">Этап</th>
-                            <th data-i18n="t1_th2">Начало</th>
-                            <th data-i18n="t1_th3">Конец</th>
-                            <th data-i18n="t1_th4">Ключевой результат</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>Этап</th><th>Начало</th><th>Конец</th><th>Ключевой результат</th></tr></thead>
                     <tbody>
-                        <tr><td data-i18n="t1_r1">Регистрация ТОО</td><td>03.08.2026</td><td>14.08.2026</td><td data-i18n="t1_r1r">Справка о регистрации</td></tr>
-                        <tr><td data-i18n="t1_r2">Получение статуса участника СЭЗ «Alatau»</td><td>15.08.2026</td><td>31.10.2026</td><td data-i18n="t1_r2r">Свидетельство участника СЭЗ</td></tr>
-                        <tr><td data-i18n="t1_r3">Земельный участок и ТУ</td><td>01.09.2026</td><td>31.12.2026</td><td data-i18n="t1_r3r">Договор аренды, ТУ</td></tr>
-                        <tr><td data-i18n="t1_r4">Проектирование и экспертиза</td><td>01.10.2026</td><td>31.03.2027</td><td data-i18n="t1_r4r">Положительное заключение экспертизы</td></tr>
-                        <tr><td data-i18n="t1_r5">Строительство объекта</td><td>01.04.2027</td><td>31.03.2028</td><td data-i18n="t1_r5r">Акт ввода в эксплуатацию</td></tr>
-                        <tr><td data-i18n="t1_r6">Монтаж ускорителя</td><td>01.01.2028</td><td>31.03.2028</td><td data-i18n="t1_r6r">Приемочные испытания</td></tr>
-                        <tr><td data-i18n="t1_r7">Лицензия на атомную энергию</td><td>01.04.2028</td><td>15.05.2028</td><td data-i18n="t1_r7r">Лицензия Комитета атомного надзора</td></tr>
-                        <tr><td data-i18n="t1_r8">Госрегистрация ИИИ</td><td>15.05.2028</td><td>31.05.2028</td><td data-i18n="t1_r8r">Свидетельство о госучете</td></tr>
-                        <tr><td data-i18n="t1_r9">Валидация (IQ/OQ/PQ, дозовое картирование)</td><td>01.05.2028</td><td>31.07.2028</td><td data-i18n="t1_r9r">Валидация по ISO 11137</td></tr>
-                        <tr><td data-i18n="t1_r10">Промышленный запуск</td><td>01.08.2028</td><td>30.09.2028</td><td data-i18n="t1_r10r">Первая коммерческая партия</td></tr>
+                        <tr><td>Регистрация ТОО</td><td>03.08.2026</td><td>14.08.2026</td><td>Справка о регистрации</td></tr>
+                        <tr><td>Получение статуса участника СЭЗ «Alatau»</td><td>15.08.2026</td><td>31.10.2026</td><td>Свидетельство участника СЭЗ</td></tr>
+                        <tr><td>Земельный участок и ТУ</td><td>01.09.2026</td><td>31.12.2026</td><td>Договор аренды, ТУ</td></tr>
+                        <tr><td>Проектирование и экспертиза</td><td>01.10.2026</td><td>31.03.2027</td><td>Положительное заключение экспертизы</td></tr>
+                        <tr><td>Строительство объекта</td><td>01.04.2027</td><td>31.03.2028</td><td>Акт ввода в эксплуатацию</td></tr>
+                        <tr><td>Монтаж ускорителя</td><td>01.01.2028</td><td>31.03.2028</td><td>Приемочные испытания</td></tr>
+                        <tr><td>Лицензия на атомную энергию</td><td>01.04.2028</td><td>15.05.2028</td><td>Лицензия Комитета атомного надзора</td></tr>
+                        <tr><td>Госрегистрация ИИИ</td><td>15.05.2028</td><td>31.05.2028</td><td>Свидетельство о госучете</td></tr>
+                        <tr><td>Валидация (IQ/OQ/PQ, дозовое картирование)</td><td>01.05.2028</td><td>31.07.2028</td><td>Валидация по ISO 11137</td></tr>
+                        <tr><td>Промышленный запуск</td><td>01.08.2028</td><td>30.09.2028</td><td>Первая коммерческая партия</td></tr>
                     </tbody>
                 </table>
-                <div class="info-box"><strong data-i18n="t1_info1">Общая длительность проекта:</strong> <span data-i18n="t1_info2">~26 месяцев (август 2026 – сентябрь 2028)</span></div>
+                <div class="info-box"><strong>Общая длительность проекта:</strong> ~26 месяцев (август 2026 – сентябрь 2028)</div>
             </div>
 
-            <!-- ========== TAB 2 ========== -->
+            <!-- ===== TAB 2 ===== -->
             <div id="tab2" class="tab-pane">
-                <div class="section-title" data-i18n="t2_title">Лицензия на деятельность по использованию атомной энергии</div>
-                <div class="section-sub" data-i18n="t2_sub">Эксплуатация радиационной установки (ускорителя электронов)</div>
-
+                <div class="section-title">Лицензия на деятельность по использованию атомной энергии</div>
+                <div class="section-sub">Эксплуатация радиационной установки (ускорителя электронов)</div>
                 <div class="grid-2">
                     <div class="card">
-                        <span class="badge badge-blue" data-i18n="t2_b1">Орган</span>
-                        <h4 data-i18n="t2_b1t">Комитет атомного надзора и контроля</h4>
-                        <p data-i18n="t2_b1p">Агентства Республики Казахстан по атомной энергии</p>
-                        <p style="margin-top:8px;font-size:13px;color:#4a5e7a;" data-i18n="t2_b1p2">Правопреемник КАЭНК. Полномочия с 10.08.2026</p>
+                        <span class="badge badge-blue">Орган</span>
+                        <h4>Комитет атомного надзора и контроля</h4>
+                        <p>Агентства Республики Казахстан по атомной энергии</p>
+                        <p style="margin-top:8px;font-size:13px;color:#4a5e7a;">Правопреемник КАЭНК. Полномочия с 10.08.2026</p>
                     </div>
                     <div class="card">
-                        <span class="badge badge-green" data-i18n="t2_b2">Срок</span>
-                        <h4 data-i18n="t2_b2t">20 рабочих дней</h4>
-                        <p data-i18n="t2_b2p">После подачи полного пакета документов</p>
-                        <p style="margin-top:8px;font-size:13px;color:#4a5e7a;" data-i18n="t2_b2p2">Подача через портал <strong>elicense.kz</strong></p>
+                        <span class="badge badge-green">Срок</span>
+                        <h4>20 рабочих дней</h4>
+                        <p>После подачи полного пакета документов</p>
+                        <p style="margin-top:8px;font-size:13px;color:#4a5e7a;">Подача через портал <strong>elicense.kz</strong></p>
                     </div>
                 </div>
-
                 <div class="card" style="margin-top:16px;">
-                    <span class="badge badge-orange" data-i18n="t2_b3">Перечень документов</span>
-                    <h4 data-i18n="t2_b3t">Что нужно предоставить</h4>
+                    <span class="badge badge-orange">Перечень документов</span>
+                    <h4>Что нужно предоставить</h4>
                     <ul>
-                        <li data-i18n="t2_l1"><strong>Заявление</strong> (через портал elicense.kz)</li>
-                        <li data-i18n="t2_l2"><strong>Копия устава ТОО</strong> (заверенная)</li>
-                        <li data-i18n="t2_l3"><strong>Справка о регистрации ТОО</strong></li>
-                        <li data-i18n="t2_l4"><strong>Документы на оборудование</strong> — технический паспорт ускорителя CGN Dasheng DZ-10</li>
-                        <li data-i18n="t2_l5"><strong>Акт ввода в эксплуатацию</strong> (после монтажа и приемочных испытаний)</li>
-                        <li data-i18n="t2_l6"><strong>Программа ПРК</strong></li>
-                        <li data-i18n="t2_l7"><strong>Инструкция по радиационной безопасности</strong></li>
-                        <li data-i18n="t2_l8"><strong>Аварийный план</strong></li>
-                        <li data-i18n="t2_l9"><strong>Документы о назначении ответственного за РБ</strong></li>
-                        <li data-i18n="t2_l10"><strong>Документы о квалификации персонала</strong> (аттестаты, сертификаты)</li>
-                        <li data-i18n="t2_l11"><strong>Санитарно-эпидемиологическое заключение (СЭЗ) на объект</strong></li>
-                        <li data-i18n="t2_l12"><strong>Заключение экспертизы промышленной безопасности</strong> (если объект отнесён к опасным)</li>
+                        <li><strong>Заявление</strong> (через портал elicense.kz)</li>
+                        <li><strong>Копия устава ТОО</strong> (заверенная)</li>
+                        <li><strong>Справка о регистрации ТОО</strong></li>
+                        <li><strong>Документы на оборудование</strong> — технический паспорт ускорителя CGN Dasheng DZ-10</li>
+                        <li><strong>Акт ввода в эксплуатацию</strong> (после монтажа и приемочных испытаний)</li>
+                        <li><strong>Программа ПРК</strong></li>
+                        <li><strong>Инструкция по радиационной безопасности</strong></li>
+                        <li><strong>Аварийный план</strong></li>
+                        <li><strong>Документы о назначении ответственного за РБ</strong></li>
+                        <li><strong>Документы о квалификации персонала</strong> (аттестаты, сертификаты)</li>
+                        <li><strong>Санитарно-эпидемиологическое заключение (СЭЗ) на объект</strong></li>
+                        <li><strong>Заключение экспертизы промышленной безопасности</strong> (если объект отнесён к опасным)</li>
                     </ul>
                 </div>
-                <div class="info-box">
-                    <strong data-i18n="t2_info1">Важно:</strong> <span data-i18n="t2_info2">Лицензия выдается <strong>после монтажа и пусконаладки оборудования</strong>. Выездная проверка объекта — обязательный этап.</span>
-                </div>
+                <div class="info-box"><strong>Важно:</strong> Лицензия выдается <strong>после монтажа и пусконаладки оборудования</strong>. Выездная проверка объекта — обязательный этап.</div>
             </div>
 
-            <!-- ========== TAB 3 ========== -->
+            <!-- ===== TAB 3 ===== -->
             <div id="tab3" class="tab-pane">
-                <div class="section-title" data-i18n="t3_title">Государственная регистрация источника ионизирующего излучения</div>
-                <div class="section-sub" data-i18n="t3_sub">Постановка ускорителя на государственный учёт</div>
-
+                <div class="section-title">Государственная регистрация источника ионизирующего излучения</div>
+                <div class="section-sub">Постановка ускорителя на государственный учёт</div>
                 <div class="grid-2">
                     <div class="card">
-                        <span class="badge badge-blue" data-i18n="t3_b1">Орган</span>
-                        <h4 data-i18n="t3_b1t">Комитет атомного надзора и контроля</h4>
-                        <p data-i18n="t3_b1p">Агентства Республики Казахстан по атомной энергии</p>
+                        <span class="badge badge-blue">Орган</span>
+                        <h4>Комитет атомного надзора и контроля</h4>
+                        <p>Агентства Республики Казахстан по атомной энергии</p>
                     </div>
                     <div class="card">
-                        <span class="badge badge-green" data-i18n="t3_b2">Срок</span>
-                        <h4 data-i18n="t3_b2t">После ввоза, монтажа и приемочных испытаний</h4>
-                        <p data-i18n="t3_b2p">Документ: Свидетельство о государственной регистрации</p>
+                        <span class="badge badge-green">Срок</span>
+                        <h4>После ввоза, монтажа и приемочных испытаний</h4>
+                        <p>Документ: Свидетельство о государственной регистрации</p>
                     </div>
                 </div>
-
                 <div class="card" style="margin-top:16px;">
-                    <span class="badge badge-orange" data-i18n="t3_b3">Перечень документов</span>
-                    <h4 data-i18n="t3_b3t">Что нужно предоставить</h4>
+                    <span class="badge badge-orange">Перечень документов</span>
+                    <h4>Что нужно предоставить</h4>
                     <ul>
-                        <li data-i18n="t3_l1"><strong>Заявление</strong> о постановке источника на учёт</li>
-                        <li data-i18n="t3_l2"><strong>Технический паспорт ускорителя</strong> (с характеристиками: энергия, мощность, тип)</li>
-                        <li data-i18n="t3_l3"><strong>Акт ввода в эксплуатацию</strong></li>
-                        <li data-i18n="t3_l4"><strong>Документы, подтверждающие право собственности/владения</strong> (договор поставки)</li>
-                        <li data-i18n="t3_l5"><strong>Программа ПРК</strong></li>
-                        <li data-i18n="t3_l6"><strong>Санитарно-эпидемиологическое заключение</strong> на объект</li>
+                        <li><strong>Заявление</strong> о постановке источника на учёт</li>
+                        <li><strong>Технический паспорт ускорителя</strong> (с характеристиками: энергия, мощность, тип)</li>
+                        <li><strong>Акт ввода в эксплуатацию</strong></li>
+                        <li><strong>Документы, подтверждающие право собственности/владения</strong> (договор поставки)</li>
+                        <li><strong>Программа ПРК</strong></li>
+                        <li><strong>Санитарно-эпидемиологическое заключение</strong> на объект</li>
                     </ul>
                 </div>
                 <div class="info-box">
-                    <strong data-i18n="t3_info1">Порядок действий:</strong>
+                    <strong>Порядок действий:</strong>
                     <ol style="margin-top:6px;padding-left:20px;font-size:14px;color:#2c3e5c;">
-                        <li data-i18n="t3_o1">Ввоз ускорителя на территорию РК</li>
-                        <li data-i18n="t3_o2">Монтаж и пусконаладка</li>
-                        <li data-i18n="t3_o3">Приемочные испытания</li>
-                        <li data-i18n="t3_o4">Подача заявления на госрегистрацию</li>
-                        <li data-i18n="t3_o5">Внесение в Реестр ИИИ → выдача Свидетельства</li>
+                        <li>Ввоз ускорителя на территорию РК</li>
+                        <li>Монтаж и пусконаладка</li>
+                        <li>Приемочные испытания</li>
+                        <li>Подача заявления на госрегистрацию</li>
+                        <li>Внесение в Реестр ИИИ → выдача Свидетельства</li>
                     </ol>
                 </div>
             </div>
 
-            <!-- ========== TAB 4 ========== -->
+            <!-- ===== TAB 4 ===== -->
             <div id="tab4" class="tab-pane">
-                <div class="section-title" data-i18n="t4_title">СЭЗ «Alatau» — статус участника</div>
-                <div class="section-sub" data-i18n="t4_sub">Получение статуса участника специальной экономической зоны</div>
-
+                <div class="section-title">СЭЗ «Alatau» — статус участника</div>
+                <div class="section-sub">Получение статуса участника специальной экономической зоны</div>
                 <div class="sez-info">
-                    <span class="badge badge-green" data-i18n="t4_b1">Управляющая компания</span>
-                    <h4 data-i18n="t4_b1t">СЭЗ «Alatau»</h4>
-                    <p><strong data-i18n="t4_addr">Адрес:</strong> <span data-i18n="t4_addrv">050000, Республика Казахстан, г. Алматы, ул. Желтоқсан, 112</span></p>
-                    <p><strong data-i18n="t4_phone">Телефон:</strong> +7708 888 88 88</p>
-                    <p><strong data-i18n="t4_web">Сайт:</strong> <a href="http://www.alatausez.kz" target="_blank">www.alatausez.kz</a></p>
+                    <span class="badge badge-green">Управляющая компания</span>
+                    <h4>СЭЗ «Alatau»</h4>
+                    <p><strong>Адрес:</strong> 050000, Республика Казахстан, г. Алматы, ул. Желтоқсан, 112</p>
+                    <p><strong>Телефон:</strong> +7708 888 88 88</p>
+                    <p><strong>Сайт:</strong> <a href="http://www.alatausez.kz" target="_blank">www.alatausez.kz</a></p>
                 </div>
-
                 <div class="card">
-                    <span class="badge badge-blue" data-i18n="t4_b2">Приоритетные виды деятельности (ПВД) для вашего проекта</span>
+                    <span class="badge badge-blue">Приоритетные виды деятельности (ПВД) для вашего проекта</span>
                     <div style="background:#fef3c7;border-left:4px solid #f59e0b;padding:16px 20px;border-radius:0 12px 12px 0;margin:16px 0;font-size:14px;color:#2c3e5c;">
-                        <strong data-i18n="t4_b2t">☑️ Ваш проект соответствует следующим ПВД СЭЗ «Alatau»:</strong>
+                        <strong>☑️ Ваш проект соответствует следующим ПВД СЭЗ «Alatau»:</strong>
                     </div>
                     <table class="doc-table">
-                        <thead><tr><th data-i18n="t4_th1">ОКЭД</th><th data-i18n="t4_th2">Наименование</th><th data-i18n="t4_th3">Обоснование</th></tr></thead>
+                        <thead><tr><th>ОКЭД</th><th>Наименование</th><th>Обоснование</th></tr></thead>
                         <tbody>
-                            <tr><td><strong>32.50.2</strong></td><td data-i18n="t4_r1">Производство медицинских и ветеринарных инструментов, аппаратов и оборудования</td><td data-i18n="t4_r1d">Стерилизация медицинских изделий — неотъемлемая часть производства</td></tr>
-                            <tr><td><strong>22.19.2</strong></td><td data-i18n="t4_r2">Производство резиновых санитарно-гигиенических и медицинских изделий</td><td data-i18n="t4_r2d">Стерилизация резиновых изделий (перчатки, катетеры, зонды)</td></tr>
-                            <tr><td><strong>22.22</strong></td><td data-i18n="t4_r3">Производство пластмассовых упаковок для товаров</td><td data-i18n="t4_r3d">Стерилизация упаковки для медицинских изделий</td></tr>
-                            <tr><td><strong>21.20.1</strong></td><td data-i18n="t4_r4">Производство фармацевтических препаратов</td><td data-i18n="t4_r4d">Стерилизация лекарственных средств и фармацевтической продукции</td></tr>
+                            <tr><td><strong>32.50.2</strong></td><td>Производство медицинских и ветеринарных инструментов, аппаратов и оборудования</td><td>Стерилизация медицинских изделий — неотъемлемая часть производства</td></tr>
+                            <tr><td><strong>22.19.2</strong></td><td>Производство резиновых санитарно-гигиенических и медицинских изделий</td><td>Стерилизация резиновых изделий (перчатки, катетеры, зонды)</td></tr>
+                            <tr><td><strong>22.22</strong></td><td>Производство пластмассовых упаковок для товаров</td><td>Стерилизация упаковки для медицинских изделий</td></tr>
+                            <tr><td><strong>21.20.1</strong></td><td>Производство фармацевтических препаратов</td><td>Стерилизация лекарственных средств и фармацевтической продукции</td></tr>
                         </tbody>
                     </table>
                     <div style="margin-top:10px;font-size:13px;color:#4a5e7a;">
-                        <strong data-i18n="t4_base">Основание:</strong> <span data-i18n="t4_basev">Приказ Министра промышленности и строительства РК №72 от 22 февраля 2024 года (с изменениями от 22.12.2025)</span>
+                        <strong>Основание:</strong> Приказ Министра промышленности и строительства РК №72 от 22 февраля 2024 года (с изменениями от 22.12.2025)
                     </div>
                     <div class="info-box" style="margin-top:12px;">
-                        <strong data-i18n="t4_rec">☑️ Рекомендация:</strong> <span data-i18n="t4_recv">При подаче заявления укажите <strong>основной ОКЭД 32.50.2</strong> (производство медицинских инструментов и оборудования), остальные — как дополнительные. Это даст право на все налоговые преференции СЭЗ.</span>
+                        <strong>☑️ Рекомендация:</strong> При подаче заявления укажите <strong>основной ОКЭД 32.50.2</strong> (производство медицинских инструментов и оборудования), остальные — как дополнительные. Это даст право на все налоговые преференции СЭЗ.
                     </div>
                 </div>
-
                 <div class="card" style="margin-top:16px;">
-                    <span class="badge badge-orange" data-i18n="t4_b3">Перечень документов для подачи заявления</span>
+                    <span class="badge badge-orange">Перечень документов для подачи заявления</span>
                     <ul>
-                        <li data-i18n="t4_d1">Анкета заявителя (форма УО)</li>
-                        <li data-i18n="t4_d2">Копия устава юридического лица</li>
-                        <li data-i18n="t4_d3">Копия решения высшего органа юридического лица об осуществлении деятельности на территории СЭЗ</li>
-                        <li data-i18n="t4_d4">Справка о государственной регистрации (перерегистрации) юридического лица</li>
-                        <li data-i18n="t4_d5">Копия документа, удостоверяющего личность первого руководителя</li>
-                        <li data-i18n="t4_d6">Копия финансовой отчетности за последний финансовый год</li>
-                        <li data-i18n="t4_d7"><strong>ТЭО проекта</strong> (в соответствие с требованием УО)</li>
-                        <li data-i18n="t4_d8">Выписка из банка о движении денег и кредитный отчет из кредитного бюро</li>
-                        <li data-i18n="t4_d9">Справка органа государственных доходов о наличии/отсутствии задолженности</li>
-                        <li data-i18n="t4_d10">Подтверждение финансового обеспечения проекта не менее 10% (деньгами, банковской гарантией, поручительством, залогом имущества, договором страхования)</li>
-                        <li data-i18n="t4_d11">Эскизный проект территории (если проект связан со строительством)</li>
-                        <li data-i18n="t4_d12">Копия справки об отсутствии государственной регистрации в качестве налогоплательщика (для нерезидентов РК)</li>
+                        <li>Анкета заявителя (форма УО)</li>
+                        <li>Копия устава юридического лица</li>
+                        <li>Копия решения высшего органа юридического лица об осуществлении деятельности на территории СЭЗ</li>
+                        <li>Справка о государственной регистрации (перерегистрации) юридического лица</li>
+                        <li>Копия документа, удостоверяющего личность первого руководителя</li>
+                        <li>Копия финансовой отчетности за последний финансовый год</li>
+                        <li><strong>ТЭО проекта</strong> (в соответствие с требованием УО)</li>
+                        <li>Выписка из банка о движении денег и кредитный отчет из кредитного бюро</li>
+                        <li>Справка органа государственных доходов о наличии/отсутствии задолженности</li>
+                        <li>Подтверждение финансового обеспечения проекта не менее 10% (деньгами, банковской гарантией, поручительством, залогом имущества, договором страхования)</li>
+                        <li>Эскизный проект территории (если проект связан со строительством)</li>
+                        <li>Копия справки об отсутствии государственной регистрации в качестве налогоплательщика (для нерезидентов РК)</li>
                     </ul>
                 </div>
-
                 <div class="card" style="margin-top:16px;">
-                    <span class="badge badge-green" data-i18n="t4_b4">Сроки рассмотрения</span>
+                    <span class="badge badge-green">Сроки рассмотрения</span>
                     <ul>
-                        <li data-i18n="t4_t1">При полном пакете документов и соответствии ПВД — управляющая компания СЭЗ в течение <strong>10 рабочих дней</strong> подписывает договор об осуществлении деятельности</li>
-                        <li data-i18n="t4_t2">В течение <strong>5 рабочих дней</strong> после подачи договора в УО, УК выдает <strong>свидетельство о регистрации</strong></li>
+                        <li>При полном пакете документов и соответствии ПВД — управляющая компания СЭЗ в течение <strong>10 рабочих дней</strong> подписывает договор об осуществлении деятельности</li>
+                        <li>В течение <strong>5 рабочих дней</strong> после подачи договора в УО, УК выдает <strong>свидетельство о регистрации</strong></li>
                     </ul>
                 </div>
-                <div class="info-box">
-                    <strong data-i18n="t4_info1">После получения свидетельства:</strong> <span data-i18n="t4_info2">Участник СЭЗ вправе получать налоговые льготы при осуществлении приоритетных видов деятельности на территории СЭЗ в порядке, установленном налоговым законодательством Республики Казахстан.</span>
-                </div>
+                <div class="info-box"><strong>После получения свидетельства:</strong> Участник СЭЗ вправе получать налоговые льготы при осуществлении приоритетных видов деятельности на территории СЭЗ в порядке, установленном налоговым законодательством Республики Казахстан.</div>
             </div>
 
-            <!-- ========== TAB 5 ========== -->
+            <!-- ===== TAB 5 ===== -->
             <div id="tab5" class="tab-pane">
-                <div class="section-title" data-i18n="t5_title">Документы, необходимые для реализации проекта</div>
-                <div class="section-sub" data-i18n="t5_sub">Внутренние и внешние документы, лицензии и разрешения</div>
-
+                <div class="section-title">Документы, необходимые для реализации проекта</div>
+                <div class="section-sub">Внутренние и внешние документы, лицензии и разрешения</div>
                 <div class="grid-2">
                     <div class="card">
-                        <span class="badge badge-blue" data-i18n="t5_b1">Внешние документы</span>
-                        <h4 data-i18n="t5_b1t">Выдаются государственными органами</h4>
+                        <span class="badge badge-blue">Внешние документы</span>
+                        <h4>Выдаются государственными органами</h4>
                         <ul>
-                            <li data-i18n="t5_e1"><strong>Справка о регистрации ТОО</strong> — Минюст РК</li>
-                            <li data-i18n="t5_e2"><strong>Свидетельство участника СЭЗ «Alatau»</strong> — СЭЗ «Alatau»</li>
-                            <li data-i18n="t5_e3"><strong>Лицензия на атомную энергию</strong> — Комитет атомного надзора и контроля</li>
-                            <li data-i18n="t5_e4"><strong>Свидетельство о госрегистрации ИИИ</strong> — Комитет атомного надзора и контроля</li>
-                            <li data-i18n="t5_e5"><strong>Санитарно-эпидемиологическое заключение</strong> — Минздрав РК</li>
-                            <li data-i18n="t5_e6"><strong>Заключение экспертизы ПСД</strong> — РГП «Госэкспертиза»</li>
-                            <li data-i18n="t5_e7"><strong>Акт ввода в эксплуатацию</strong> — Акимат/ГАСК</li>
+                            <li><strong>Справка о регистрации ТОО</strong> — Минюст РК</li>
+                            <li><strong>Свидетельство участника СЭЗ «Alatau»</strong> — СЭЗ «Alatau»</li>
+                            <li><strong>Лицензия на атомную энергию</strong> — Комитет атомного надзора и контроля</li>
+                            <li><strong>Свидетельство о госрегистрации ИИИ</strong> — Комитет атомного надзора и контроля</li>
+                            <li><strong>Санитарно-эпидемиологическое заключение</strong> — Минздрав РК</li>
+                            <li><strong>Заключение экспертизы ПСД</strong> — РГП «Госэкспертиза»</li>
+                            <li><strong>Акт ввода в эксплуатацию</strong> — Акимат/ГАСК</li>
                         </ul>
                     </div>
                     <div class="card">
-                        <span class="badge badge-green" data-i18n="t5_b2">Внутренние документы</span>
-                        <h4 data-i18n="t5_b2t">Разрабатываются компанией</h4>
+                        <span class="badge badge-green">Внутренние документы</span>
+                        <h4>Разрабатываются компанией</h4>
                         <ul>
-                            <li data-i18n="t5_i1"><strong>Устав ТОО</strong></li>
-                            <li data-i18n="t5_i2"><strong>Программа ПРК</strong></li>
-                            <li data-i18n="t5_i3"><strong>Инструкция по радиационной безопасности</strong></li>
-                            <li data-i18n="t5_i4"><strong>Аварийный план</strong></li>
-                            <li data-i18n="t5_i5"><strong>Приказ о назначении ответственного за РБ</strong></li>
-                            <li data-i18n="t5_i6"><strong>Паспорта зон контроля</strong></li>
-                            <li data-i18n="t5_i7"><strong>Журналы учёта (радиационного контроля, дозиметрии)</strong></li>
-                            <li data-i18n="t5_i8"><strong>Должностные инструкции персонала</strong></li>
+                            <li><strong>Устав ТОО</strong></li>
+                            <li><strong>Программа ПРК</strong></li>
+                            <li><strong>Инструкция по радиационной безопасности</strong></li>
+                            <li><strong>Аварийный план</strong></li>
+                            <li><strong>Приказ о назначении ответственного за РБ</strong></li>
+                            <li><strong>Паспорта зон контроля</strong></li>
+                            <li><strong>Журналы учёта (радиационного контроля, дозиметрии)</strong></li>
+                            <li><strong>Должностные инструкции персонала</strong></li>
                         </ul>
                     </div>
                 </div>
-
                 <div class="card" style="margin-top:16px;">
-                    <span class="badge badge-red" data-i18n="t5_b3">Документы, выполняемые только лицензированными организациями</span>
-                    <h4 data-i18n="t5_b3t">Требуют специальной лицензии</h4>
+                    <span class="badge badge-red">Документы, выполняемые только лицензированными организациями</span>
+                    <h4>Требуют специальной лицензии</h4>
                     <ul>
-                        <li data-i18n="t5_l1"><strong>Разработка ПСД</strong> — только проектная организация с лицензией</li>
-                        <li data-i18n="t5_l2"><strong>Экспертиза ПСД</strong> — РГП «Госэкспертиза» или аккредитованные экспертные организации</li>
-                        <li data-i18n="t5_l3"><strong>Экспертиза радиационной безопасности</strong> — аккредитованная организация</li>
-                        <li data-i18n="t5_l4"><strong>Монтаж и пусконаладка ускорителя</strong> — специализированная организация (поставщик)</li>
-                        <li data-i18n="t5_l5"><strong>Поверка дозиметрического оборудования</strong> — аккредитованная лаборатория</li>
-                        <li data-i18n="t5_l6"><strong>Микробиологические исследования (бионагрузка, тесты на стерильность)</strong> — аккредитованная лаборатория</li>
+                        <li><strong>Разработка ПСД</strong> — только проектная организация с лицензией</li>
+                        <li><strong>Экспертиза ПСД</strong> — РГП «Госэкспертиза» или аккредитованные экспертные организации</li>
+                        <li><strong>Экспертиза радиационной безопасности</strong> — аккредитованная организация</li>
+                        <li><strong>Монтаж и пусконаладка ускорителя</strong> — специализированная организация (поставщик)</li>
+                        <li><strong>Поверка дозиметрического оборудования</strong> — аккредитованная лаборатория</li>
+                        <li><strong>Микробиологические исследования (бионагрузка, тесты на стерильность)</strong> — аккредитованная лаборатория</li>
                     </ul>
                 </div>
-                <div class="info-box">
-                    <strong data-i18n="t5_info1">Итог:</strong> <span data-i18n="t5_info2">Для запуска проекта требуется получить <strong>3 ключевых разрешения</strong> от государственных органов: свидетельство участника СЭЗ, лицензия на атомную энергию, госрегистрация ИИИ.</span>
-                </div>
+                <div class="info-box"><strong>Итог:</strong> Для запуска проекта требуется получить <strong>3 ключевых разрешения</strong> от государственных органов: свидетельство участника СЭЗ, лицензия на атомную энергию, госрегистрация ИИИ.</div>
             </div>
 
-            <!-- ========== TAB 6 ========== -->
+            <!-- ===== TAB 6 ===== -->
             <div id="tab6" class="tab-pane">
-                <div class="section-title" data-i18n="t6_title">Стерилизация медицинских изделий</div>
-                <div class="section-sub" data-i18n="t6_sub">Дозы и методы для электронно-лучевой стерилизации</div>
-
+                <div class="section-title">Стерилизация медицинских изделий</div>
+                <div class="section-sub">Дозы и методы для электронно-лучевой стерилизации</div>
                 <div class="card">
-                    <span class="badge badge-teal" data-i18n="t6_b1">Основные подходы к определению дозы</span>
-                    <p style="margin-top:8px;" data-i18n="t6_p1">Для достижения требуемого уровня гарантии стерильности (SAL) в 10⁻⁶ (вероятность наличия одного жизнеспособного микроорганизма на изделии — 1 к 1 000 000) чаще всего используются два метода.</p>
+                    <span class="badge badge-teal">Основные подходы к определению дозы</span>
+                    <p style="margin-top:8px;">Для достижения требуемого уровня гарантии стерильности (SAL) в 10⁻⁶ (вероятность наличия одного жизнеспособного микроорганизма на изделии — 1 к 1 000 000) чаще всего используются два метода.</p>
                     <table class="doc-table">
-                        <thead><tr><th data-i18n="t6_th1">Метод</th><th data-i18n="t6_th2">Типовая доза</th><th data-i18n="t6_th3">Применение</th></tr></thead>
+                        <thead><tr><th>Метод</th><th>Типовая доза</th><th>Применение</th></tr></thead>
                         <tbody>
-                            <tr><td data-i18n="t6_m1"><strong>VDmax</strong> (Верифицированная максимальная доза)</td><td><strong>25 кГр</strong> или <strong>15 кГр</strong></td><td data-i18n="t6_m1d">Наиболее распространенный для стандартных изделий. Доза выбирается на основании подтверждения бионагрузки.</td></tr>
-                            <tr><td data-i18n="t6_m2"><strong>Method 1</strong></td><td><strong data-i18n="t6_m2dose">Индивидуально рассчитывается</strong></td><td data-i18n="t6_m2d">Используется для изделий с высокой бионагрузкой или для поиска минимальной эффективной дозы.</td></tr>
+                            <tr><td><strong>VDmax</strong> (Верифицированная максимальная доза)</td><td><strong>25 кГр</strong> или <strong>15 кГр</strong></td><td>Наиболее распространенный для стандартных изделий. Доза выбирается на основании подтверждения бионагрузки.</td></tr>
+                            <tr><td><strong>Method 1</strong></td><td><strong>Индивидуально рассчитывается</strong></td><td>Используется для изделий с высокой бионагрузкой или для поиска минимальной эффективной дозы.</td></tr>
                         </tbody>
                     </table>
-                    <div class="info-box" style="margin-top:8px;">
-                        <strong data-i18n="t6_info1">Важно:</strong> <span data-i18n="t6_info2">Каждый производитель обязан валидировать процесс стерилизации именно для своего конкретного изделия. Финальная доза указывается в технической инструкции после валидации.</span>
-                    </div>
+                    <div class="info-box" style="margin-top:8px;"><strong>Важно:</strong> Каждый производитель обязан валидировать процесс стерилизации именно для своего конкретного изделия. Финальная доза указывается в технической инструкции после валидации.</div>
                 </div>
-
                 <div class="card" style="margin-top:16px;">
-                    <span class="badge badge-blue" data-i18n="t6_b2">Категории медицинских изделий и дозировка</span>
+                    <span class="badge badge-blue">Категории медицинских изделий и дозировка</span>
                     <table class="doc-table">
-                        <thead><tr><th data-i18n="t6_th4">Категория</th><th data-i18n="t6_th5">Типовая доза</th><th data-i18n="t6_th6">Примеры</th></tr></thead>
+                        <thead><tr><th>Категория</th><th>Типовая доза</th><th>Примеры</th></tr></thead>
                         <tbody>
-                            <tr><td data-i18n="t6_c1"><strong>Малорисковые изделия</strong></td><td>15–25 кГр</td><td data-i18n="t6_c1e">Шприцы, иглы, системы для переливания крови, перчатки, маски</td></tr>
-                            <tr><td data-i18n="t6_c2"><strong>Стандартные изделия</strong></td><td><strong>25 кГр</strong></td><td data-i18n="t6_c2e">Хирургические инструменты, катетеры, имплантаты, перевязочные материалы</td></tr>
-                            <tr><td data-i18n="t6_c3"><strong>Изделия с высокой плотностью</strong></td><td>25–50 кГр</td><td data-i18n="t6_c3e">Крупные имплантаты, сложные инструменты, продукты с критическими бионагрузками</td></tr>
+                            <tr><td><strong>Малорисковые изделия</strong></td><td>15–25 кГр</td><td>Шприцы, иглы, системы для переливания крови, перчатки, маски</td></tr>
+                            <tr><td><strong>Стандартные изделия</strong></td><td><strong>25 кГр</strong></td><td>Хирургические инструменты, катетеры, имплантаты, перевязочные материалы</td></tr>
+                            <tr><td><strong>Изделия с высокой плотностью</strong></td><td>25–50 кГр</td><td>Крупные имплантаты, сложные инструменты, продукты с критическими бионагрузками</td></tr>
                         </tbody>
                     </table>
                 </div>
-
                 <div class="card" style="margin-top:16px;">
-                    <span class="badge badge-green" data-i18n="t6_b3">Рекомендации для вашего проекта</span>
-                    <p data-i18n="t6_recp">Для Центра E‑Beam Kazakhstan, который будет стерилизовать широкий спектр медицинских изделий, оптимальная стратегия:</p>
+                    <span class="badge badge-green">Рекомендации для вашего проекта</span>
+                    <p>Для Центра E‑Beam Kazakhstan, который будет стерилизовать широкий спектр медицинских изделий, оптимальная стратегия:</p>
                     <ul>
-                        <li data-i18n="t6_r1"><strong>Принять 25 кГр</strong> в качестве стартовой целевой дозы для большинства стандартных изделий</li>
-                        <li data-i18n="t6_r2"><strong>Разработать процедуру валидации</strong> для каждого типа продукции заказчика согласно ISO 11137-2</li>
-                        <li data-i18n="t6_r3"><strong>Провести верификационный эксперимент</strong> для подтверждения эффективности дозы</li>
-                        <li data-i18n="t6_r4"><strong>Обеспечить регулярный аудит дозы</strong> для подтверждения постоянства процесса</li>
+                        <li><strong>Принять 25 кГр</strong> в качестве стартовой целевой дозы для большинства стандартных изделий</li>
+                        <li><strong>Разработать процедуру валидации</strong> для каждого типа продукции заказчика согласно ISO 11137-2</li>
+                        <li><strong>Провести верификационный эксперимент</strong> для подтверждения эффективности дозы</li>
+                        <li><strong>Обеспечить регулярный аудит дозы</strong> для подтверждения постоянства процесса</li>
                     </ul>
-                    <div class="info-box" style="margin-top:8px;">
-                        <strong data-i18n="t6_why">Почему 25 кГр?</strong><br>
-                        <span data-i18n="t6_whyv">Это признанная международным стандартом доза, которая обеспечивает SAL 10⁻⁶ и совместима с большинством полимерных материалов, используемых в медицинских изделиях.</span>
-                    </div>
+                    <div class="info-box" style="margin-top:8px;"><strong>Почему 25 кГр?</strong><br>Это признанная международным стандартом доза, которая обеспечивает SAL 10⁻⁶ и совместима с большинством полимерных материалов, используемых в медицинских изделиях.</div>
                 </div>
             </div>
 
-            <!-- ========== TAB 7 ========== -->
+            <!-- ===== TAB 7 ===== -->
             <div id="tab7" class="tab-pane">
-                <div class="section-title" data-i18n="t7_title">Экспертное заключение по уровню изъятия</div>
-                <div class="section-sub" data-i18n="t7_sub">Анализ соответствия ускорителя CGN Dasheng DZ-10 уровням изъятия</div>
-
+                <div class="section-title">Экспертное заключение по уровню изъятия</div>
+                <div class="section-sub">Анализ соответствия ускорителя CGN Dasheng DZ-10 уровням изъятия</div>
                 <div class="expert-box">
-                    <span class="badge badge-purple" data-i18n="t7_b1">Экспертное заключение</span>
-                    <h4 data-i18n="t7_h1">Объект проверки</h4>
-                    <p data-i18n="t7_p1">Линейный ускоритель электронов CGN Dasheng DZ-10 (8–12 МэВ, 20–32 кВт)</p>
-                    <h4 data-i18n="t7_h2">Цель проверки</h4>
-                    <p data-i18n="t7_p2">Определить, превышает ли ускоритель установленные уровни изъятия, и установить необходимость лицензирования и государственной регистрации.</p>
+                    <span class="badge badge-purple">Экспертное заключение</span>
+                    <h4>Объект проверки</h4>
+                    <p>Линейный ускоритель электронов CGN Dasheng DZ-10 (8–12 МэВ, 20–32 кВт)</p>
+                    <h4>Цель проверки</h4>
+                    <p>Определить, превышает ли ускоритель установленные уровни изъятия, и установить необходимость лицензирования и государственной регистрации.</p>
                 </div>
-
                 <div class="card" style="margin-top:16px;">
-                    <span class="badge badge-blue" data-i18n="t7_b2">Правовое определение уровня изъятия</span>
-                    <p style="margin-top:8px;" data-i18n="t7_p3">Согласно <strong>статье 1 Закона РК «Об использовании атомной энергии»</strong>:</p>
-                    <div style="background:#f1f5f9;border-radius:12px;padding:16px 20px;margin:12px 0;font-style:italic;color:#1e293b;" data-i18n="t7_quote">
+                    <span class="badge badge-blue">Правовое определение уровня изъятия</span>
+                    <p style="margin-top:8px;">Согласно <strong>статье 1 Закона РК «Об использовании атомной энергии»</strong>:</p>
+                    <div style="background:#f1f5f9;border-radius:12px;padding:16px 20px;margin:12px 0;font-style:italic;color:#1e293b;">
                         «Уровень изъятия — значение активности или мощности дозы излучения, ниже которого источник ионизирующего излучения не подлежит государственному учёту и контролю и не требует получения разрешительных документов».
                     </div>
-                    <p data-i18n="t7_p4"><strong>Критерии для освобождения от регулирования</strong> устанавливаются <strong>Приказом Министра энергетики РК № 384 от 23 декабря 2022 года</strong> (с изменениями от 15.06.2026).</p>
+                    <p><strong>Критерии для освобождения от регулирования</strong> устанавливаются <strong>Приказом Министра энергетики РК № 384 от 23 декабря 2022 года</strong> (с изменениями от 15.06.2026).</p>
                 </div>
-
                 <div class="card" style="margin-top:16px;">
-                    <span class="badge badge-orange" data-i18n="t7_b3">Расчётные параметры ускорителя</span>
+                    <span class="badge badge-orange">Расчётные параметры ускорителя</span>
                     <table class="doc-table">
-                        <thead><tr><th data-i18n="t7_th1">Параметр</th><th data-i18n="t7_th2">Значение</th><th data-i18n="t7_th3">Уровень изъятия</th><th data-i18n="t7_th4">Превышение?</th></tr></thead>
+                        <thead><tr><th>Параметр</th><th>Значение</th><th>Уровень изъятия</th><th>Превышение?</th></tr></thead>
                         <tbody>
-                            <tr><td data-i18n="t7_p5">Максимальная энергия</td><td><strong>12 МэВ</strong></td><td data-i18n="t7_p5l">не более 0,5 МэВ</td><td style="color:#b91c1c;font-weight:700;" data-i18n="t7_p5r">ДА (в 24 раза)</td></tr>
-                            <tr><td data-i18n="t7_p6">Мощность пучка</td><td><strong>32 кВт</strong></td><td data-i18n="t7_p6l">не более 1 мкВт</td><td style="color:#b91c1c;font-weight:700;" data-i18n="t7_p6r">ДА (в 32 000 000 раз)</td></tr>
-                            <tr><td data-i18n="t7_p7">Мощность дозы на расстоянии 1 м</td><td>&gt; 10 Гр/мин</td><td data-i18n="t7_p7l">не более 1 мкГр/ч</td><td style="color:#b91c1c;font-weight:700;" data-i18n="t7_p7r">ДА</td></tr>
+                            <tr><td>Максимальная энергия</td><td><strong>12 МэВ</strong></td><td>не более 0,5 МэВ</td><td style="color:#b91c1c;font-weight:700;">ДА (в 24 раза)</td></tr>
+                            <tr><td>Мощность пучка</td><td><strong>32 кВт</strong></td><td>не более 1 мкВт</td><td style="color:#b91c1c;font-weight:700;">ДА (в 32 000 000 раз)</td></tr>
+                            <tr><td>Мощность дозы на расстоянии 1 м</td><td>&gt; 10 Гр/мин</td><td>не более 1 мкГр/ч</td><td style="color:#b91c1c;font-weight:700;">ДА</td></tr>
                         </tbody>
                     </table>
                     <div style="margin-top:12px;background:#fef2f2;border-left:4px solid #dc2626;padding:12px 16px;border-radius:0 8px 8px 0;font-size:14px;color:#991b1b;">
-                        <strong data-i18n="t7_conc">Вывод:</strong> <span data-i18n="t7_concv">Ускоритель CGN Dasheng DZ-10 <strong>однозначно превышает все установленные уровни изъятия</strong> по энергии, мощности и мощности дозы.</span>
+                        <strong>Вывод:</strong> Ускоритель CGN Dasheng DZ-10 <strong>однозначно превышает все установленные уровни изъятия</strong> по энергии, мощности и мощности дозы.
                     </div>
                 </div>
-
                 <div class="card" style="margin-top:16px;">
-                    <span class="badge badge-red" data-i18n="t7_b4">Юридические последствия</span>
+                    <span class="badge badge-red">Юридические последствия</span>
                     <ul>
-                        <li data-i18n="t7_l1"><strong>Обязательная государственная регистрация</strong> источника ионизирующего излучения (ИИИ) в Комитете атомного надзора и контроля</li>
-                        <li data-i18n="t7_l2"><strong>Обязательное получение лицензии</strong> на использование атомной энергии</li>
-                        <li data-i18n="t7_l3"><strong>Разработка и согласование</strong> программы радиационного контроля (ПРК)</li>
-                        <li data-i18n="t7_l4"><strong>Назначение ответственного лица</strong> за радиационную безопасность с соответствующей аттестацией</li>
-                        <li data-i18n="t7_l5"><strong>Организация системы радиационного мониторинга</strong> и физической защиты</li>
+                        <li><strong>Обязательная государственная регистрация</strong> источника ионизирующего излучения (ИИИ) в Комитете атомного надзора и контроля</li>
+                        <li><strong>Обязательное получение лицензии</strong> на использование атомной энергии</li>
+                        <li><strong>Разработка и согласование</strong> программы радиационного контроля (ПРК)</li>
+                        <li><strong>Назначение ответственного лица</strong> за радиационную безопасность с соответствующей аттестацией</li>
+                        <li><strong>Организация системы радиационного мониторинга</strong> и физической защиты</li>
                     </ul>
                 </div>
-
                 <div class="card" style="margin-top:16px;background:#ecfdf5;border-color:#6ee7b7;">
-                    <span class="badge badge-green" data-i18n="t7_b5">Рекомендация</span>
-                    <p style="font-weight:500;font-size:15px;color:#065f46;" data-i18n="t7_rec">
+                    <span class="badge badge-green">Рекомендация</span>
+                    <p style="font-weight:500;font-size:15px;color:#065f46;">
                         Учитывая значительное превышение уровней изъятия, проект <strong>не может быть реализован без полного цикла лицензионно-разрешительных процедур</strong>. Рекомендуется начать подготовку пакета документов для лицензирования и госрегистрации <strong>на этапе проектирования</strong>, чтобы к моменту монтажа оборудования все разрешительные процедуры были завершены.
                     </p>
                 </div>
-
                 <div class="info-box" style="margin-top:16px;">
-                    <strong data-i18n="t7_final">Итоговое заключение:</strong> <span data-i18n="t7_finalv">Ускоритель CGN Dasheng DZ-10 <strong>не подлежит изъятию из-под регулирования</strong>. Получение лицензии и госрегистрация являются обязательными. Сроки заложены в дорожную карту — этапы «Лицензия» и «Госрегистрация ИИИ» идут последовательно после монтажа оборудования.</span>
+                    <strong>Итоговое заключение:</strong> Ускоритель CGN Dasheng DZ-10 <strong>не подлежит изъятию из-под регулирования</strong>. Получение лицензии и госрегистрация являются обязательными. Сроки заложены в дорожную карту — этапы «Лицензия» и «Госрегистрация ИИИ» идут последовательно после монтажа оборудования.
                 </div>
             </div>
 
@@ -748,7 +697,7 @@
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
-            <span data-i18n="footer">E‑Beam Kazakhstan • Дорожная карта проекта • 2026–2028</span>
+            E‑Beam Kazakhstan • Дорожная карта проекта • 2026–2028
             <br>
             <a href="https://wa.me/77777717707" target="_blank" class="footer-wa">
                 📱 Архитектор сайта: +7 777 771 7707 (WhatsApp)
@@ -756,164 +705,40 @@
         </div>
     </footer>
 
-    <!-- ===== JAVASCRIPT (ПОЛНЫЙ ПЕРЕВОД + ТАБЫ) ===== -->
+    <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // ============================================================
-        //  ПЕРЕВОДЫ ДЛЯ ВСЕХ ЭЛЕМЕНТОВ (РУС, ҚАЗ, ENG, 中文)
-        // ============================================================
-        const translations = {
-            ru: {
-                subtitle: 'Дорожная карта проекта',
-                tab1: 'Общий план',
-                tab2: 'Лицензия',
-                tab3: 'Госрегистрация ИИИ',
-                tab4: 'СЭЗ «Alatau»',
-                tab5: 'Документы',
-                tab6: 'Стерилизация',
-                tab7: 'Заключение',
-                t1_title: 'Сводный план-график проекта',
-                t1_sub: 'Старт: 3 августа 2026 · Запуск: сентябрь 2028',
-                t1_th1: 'Этап',
-                t1_th2: 'Начало',
-                t1_th3: 'Конец',
-                t1_th4: 'Ключевой результат',
-                t1_r1: 'Регистрация ТОО',
-                t1_r1r: 'Справка о регистрации',
-                t1_r2: 'Получение статуса участника СЭЗ «Alatau»',
-                t1_r2r: 'Свидетельство участника СЭЗ',
-                t1_r3: 'Земельный участок и ТУ',
-                t1_r3r: 'Договор аренды, ТУ',
-                t1_r4: 'Проектирование и экспертиза',
-                t1_r4r: 'Положительное заключение экспертизы',
-                t1_r5: 'Строительство объекта',
-                t1_r5r: 'Акт ввода в эксплуатацию',
-                t1_r6: 'Монтаж ускорителя',
-                t1_r6r: 'Приемочные испытания',
-                t1_r7: 'Лицензия на атомную энергию',
-                t1_r7r: 'Лицензия Комитета атомного надзора',
-                t1_r8: 'Госрегистрация ИИИ',
-                t1_r8r: 'Свидетельство о госучете',
-                t1_r9: 'Валидация (IQ/OQ/PQ, дозовое картирование)',
-                t1_r9r: 'Валидация по ISO 11137',
-                t1_r10: 'Промышленный запуск',
-                t1_r10r: 'Первая коммерческая партия',
-                t1_info1: 'Общая длительность проекта:',
-                t1_info2: '~26 месяцев (август 2026 – сентябрь 2028)',
-                t2_title: 'Лицензия на деятельность по использованию атомной энергии',
-                t2_sub: 'Эксплуатация радиационной установки (ускорителя электронов)',
-                t2_b1: 'Орган',
-                t2_b1t: 'Комитет атомного надзора и контроля',
-                t2_b1p: 'Агентства Республики Казахстан по атомной энергии',
-                t2_b1p2: 'Правопреемник КАЭНК. Полномочия с 10.08.2026',
-                t2_b2: 'Срок',
-                t2_b2t: '20 рабочих дней',
-                t2_b2p: 'После подачи полного пакета документов',
-                t2_b2p2: 'Подача через портал elicense.kz',
-                t2_b3: 'Перечень документов',
-                t2_b3t: 'Что нужно предоставить',
-                t2_l1: '<strong>Заявление</strong> (через портал elicense.kz)',
-                t2_l2: '<strong>Копия устава ТОО</strong> (заверенная)',
-                t2_l3: '<strong>Справка о регистрации ТОО</strong>',
-                t2_l4: '<strong>Документы на оборудование</strong> — технический паспорт ускорителя CGN Dasheng DZ-10',
-                t2_l5: '<strong>Акт ввода в эксплуатацию</strong> (после монтажа и приемочных испытаний)',
-                t2_l6: '<strong>Программа ПРК</strong>',
-                t2_l7: '<strong>Инструкция по радиационной безопасности</strong>',
-                t2_l8: '<strong>Аварийный план</strong>',
-                t2_l9: '<strong>Документы о назначении ответственного за РБ</strong>',
-                t2_l10: '<strong>Документы о квалификации персонала</strong> (аттестаты, сертификаты)',
-                t2_l11: '<strong>Санитарно-эпидемиологическое заключение (СЭЗ) на объект</strong>',
-                t2_l12: '<strong>Заключение экспертизы промышленной безопасности</strong> (если объект отнесён к опасным)',
-                t2_info1: 'Важно:',
-                t2_info2: 'Лицензия выдается <strong>после монтажа и пусконаладки оборудования</strong>. Выездная проверка объекта — обязательный этап.',
-                t3_title: 'Государственная регистрация источника ионизирующего излучения',
-                t3_sub: 'Постановка ускорителя на государственный учёт',
-                t3_b1: 'Орган',
-                t3_b1t: 'Комитет атомного надзора и контроля',
-                t3_b1p: 'Агентства Республики Казахстан по атомной энергии',
-                t3_b2: 'Срок',
-                t3_b2t: 'После ввоза, монтажа и приемочных испытаний',
-                t3_b2p: 'Документ: Свидетельство о государственной регистрации',
-                t3_b3: 'Перечень документов',
-                t3_b3t: 'Что нужно предоставить',
-                t3_l1: '<strong>Заявление</strong> о постановке источника на учёт',
-                t3_l2: '<strong>Технический паспорт ускорителя</strong> (с характеристиками: энергия, мощность, тип)',
-                t3_l3: '<strong>Акт ввода в эксплуатацию</strong>',
-                t3_l4: '<strong>Документы, подтверждающие право собственности/владения</strong> (договор поставки)',
-                t3_l5: '<strong>Программа ПРК</strong>',
-                t3_l6: '<strong>Санитарно-эпидемиологическое заключение</strong> на объект',
-                t3_info1: 'Порядок действий:',
-                t3_o1: 'Ввоз ускорителя на территорию РК',
-                t3_o2: 'Монтаж и пусконаладка',
-                t3_o3: 'Приемочные испытания',
-                t3_o4: 'Подача заявления на госрегистрацию',
-                t3_o5: 'Внесение в Реестр ИИИ → выдача Свидетельства',
-                t4_title: 'СЭЗ «Alatau» — статус участника',
-                t4_sub: 'Получение статуса участника специальной экономической зоны',
-                t4_b1: 'Управляющая компания',
-                t4_b1t: 'СЭЗ «Alatau»',
-                t4_addr: 'Адрес:',
-                t4_addrv: '050000, Республика Казахстан, г. Алматы, ул. Желтоқсан, 112',
-                t4_phone: 'Телефон:',
-                t4_web: 'Сайт:',
-                t4_b2: 'Приоритетные виды деятельности (ПВД) для вашего проекта',
-                t4_b2t: '☑️ Ваш проект соответствует следующим ПВД СЭЗ «Alatau»:',
-                t4_th1: 'ОКЭД',
-                t4_th2: 'Наименование',
-                t4_th3: 'Обоснование',
-                t4_r1: 'Производство медицинских и ветеринарных инструментов, аппаратов и оборудования',
-                t4_r1d: 'Стерилизация медицинских изделий — неотъемлемая часть производства',
-                t4_r2: 'Производство резиновых санитарно-гигиенических и медицинских изделий',
-                t4_r2d: 'Стерилизация резиновых изделий (перчатки, катетеры, зонды)',
-                t4_r3: 'Производство пластмассовых упаковок для товаров',
-                t4_r3d: 'Стерилизация упаковки для медицинских изделий',
-                t4_r4: 'Производство фармацевтических препаратов',
-                t4_r4d: 'Стерилизация лекарственных средств и фармацевтической продукции',
-                t4_base: 'Основание:',
-                t4_basev: 'Приказ Министра промышленности и строительства РК №72 от 22 февраля 2024 года (с изменениями от 22.12.2025)',
-                t4_rec: '☑️ Рекомендация:',
-                t4_recv: 'При подаче заявления укажите <strong>основной ОКЭД 32.50.2</strong> (производство медицинских инструментов и оборудования), остальные — как дополнительные. Это даст право на все налоговые преференции СЭЗ.',
-                t4_b3: 'Перечень документов для подачи заявления',
-                t4_d1: 'Анкета заявителя (форма УО)',
-                t4_d2: 'Копия устава юридического лица',
-                t4_d3: 'Копия решения высшего органа юридического лица об осуществлении деятельности на территории СЭЗ',
-                t4_d4: 'Справка о государственной регистрации (перерегистрации) юридического лица',
-                t4_d5: 'Копия документа, удостоверяющего личность первого руководителя',
-                t4_d6: 'Копия финансовой отчетности за последний финансовый год',
-                t4_d7: '<strong>ТЭО проекта</strong> (в соответствие с требованием УО)',
-                t4_d8: 'Выписка из банка о движении денег и кредитный отчет из кредитного бюро',
-                t4_d9: 'Справка органа государственных доходов о наличии/отсутствии задолженности',
-                t4_d10: 'Подтверждение финансового обеспечения проекта не менее 10% (деньгами, банковской гарантией, поручительством, залогом имущества, договором страхования)',
-                t4_d11: 'Эскизный проект территории (если проект связан со строительством)',
-                t4_d12: 'Копия справки об отсутствии государственной регистрации в качестве налогоплательщика (для нерезидентов РК)',
-                t4_b4: 'Сроки рассмотрения',
-                t4_t1: 'При полном пакете документов и соответствии ПВД — управляющая компания СЭЗ в течение <strong>10 рабочих дней</strong> подписывает договор об осуществлении деятельности',
-                t4_t2: 'В течение <strong>5 рабочих дней</strong> после подачи договора в УО, УК выдает <strong>свидетельство о регистрации</strong>',
-                t4_info1: 'После получения свидетельства:',
-                t4_info2: 'Участник СЭЗ вправе получать налоговые льготы при осуществлении приоритетных видов деятельности на территории СЭЗ в порядке, установленном налоговым законодательством Республики Казахстан.',
-                t5_title: 'Документы, необходимые для реализации проекта',
-                t5_sub: 'Внутренние и внешние документы, лицензии и разрешения',
-                t5_b1: 'Внешние документы',
-                t5_b1t: 'Выдаются государственными органами',
-                t5_e1: '<strong>Справка о регистрации ТОО</strong> — Минюст РК',
-                t5_e2: '<strong>Свидетельство участника СЭЗ «Alatau»</strong> — СЭЗ «Alatau»',
-                t5_e3: '<strong>Лицензия на атомную энергию</strong> — Комитет атомного надзора и контроля',
-                t5_e4: '<strong>Свидетельство о госрегистрации ИИИ</strong> — Комитет атомного надзора и контроля',
-                t5_e5: '<strong>Санитарно-эпидемиологическое заключение</strong> — Минздрав РК',
-                t5_e6: '<strong>Заключение экспертизы ПСД</strong> — РГП «Госэкспертиза»',
-                t5_e7: '<strong>Акт ввода в эксплуатацию</strong> — Акимат/ГАСК',
-                t5_b2: 'Внутренние документы',
-                t5_b2t: 'Разрабатываются компанией',
-                t5_i1: '<strong>Устав ТОО</strong>',
-                t5_i2: '<strong>Программа ПРК</strong>',
-                t5_i3: '<strong>Инструкция по радиационной безопасности</strong>',
-                t5_i4: '<strong>Аварийный план</strong>',
-                t5_i5: '<strong>Приказ о назначении ответственного за РБ</strong>',
-                t5_i6: '<strong>Паспорта зон контроля</strong>',
-                t5_i7: '<strong>Журналы учёта (радиационного контроля, дозиметрии)</strong>',
-                t5_i8: '<strong>Должностные инструкции персонала</strong>',
-                t5_b3: 'Документы, выполняемые только лицензированными организациями',
-                t5_b3t: 'Требуют специальной лицензии',
-                t5_l1: '<strong>Разработка ПСД</strong> — только проектная организация с лицензией',
-                t5_l2: '<strong>Экспертиза ПСД</strong> — РГП «Госэкспертиза» или аккредитованные экспертные организации',
-                t5_l3: '<strong>Экспертиза радиационной безопасности</strong> — аккредитованная организация',
-                t5_l4: '<strong>Монтаж и пусконаладка ускорителя</strong> — специали
+        // ===== ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК =====
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const panes = {
+            tab1: document.getElementById('tab1'),
+            tab2: document.getElementById('tab2'),
+            tab3: document.getElementById('tab3'),
+            tab4: document.getElementById('tab4'),
+            tab5: document.getElementById('tab5'),
+            tab6: document.getElementById('tab6'),
+            tab7: document.getElementById('tab7')
+        };
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                Object.values(panes).forEach(p => p.classList.remove('active'));
+
+                this.classList.add('active');
+                const target = this.dataset.tab;
+                if (panes[target]) panes[target].classList.add('active');
+            });
+        });
+
+        // ===== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКОВ (демо) =====
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                console.log('Выбран язык:', this.dataset.lang);
+            });
+        });
+    </script>
+
+</body>
+</html>
